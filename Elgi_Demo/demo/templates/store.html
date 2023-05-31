@@ -1,0 +1,529 @@
+{% load static %}
+{% include 'general/main.html' %}
+
+<head>
+    {% include 'general/title_meta.html' %}
+    <!-- plugin css -->
+    <link href="{% static 'libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css' %}" rel="stylesheet"
+        type="text/css" />
+
+    <!-- DataTables -->
+    <link href="{% static 'libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css' %}" rel="stylesheet"
+        type="text/css" />
+    <link href="{% static 'libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css' %}" rel="stylesheet"
+        type="text/css" />
+
+    <!-- Responsive datatable examples -->
+    <link href="{% static 'libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css' %}" rel="stylesheet"
+        type="text/css" />
+
+
+
+    {% include 'general/head_css.html' %}
+</head>
+{% include 'general/body.html' %}
+<!-- Begin page -->
+<div id="layout-wrapper">
+    {% include 'general/menu.html' %}
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+    <div class="main-content">
+        <div class="page-content">
+            <div class="container-fluid">
+                <!-- heder start-->
+                <div class="row">
+                    <div class="col-md-10">
+                        <!-- Profile card start -->
+                        <div class="card bg-dark border-dark text-light">
+                            <div class="card-body">
+                                <div class="row ">
+                                    <div class="col-md-1">
+                                        <img class="img-fluid mx-auto d-block rounded"
+                                            src="{% static 'images/users/avatar-6.jpg' %}" alt="Card image">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <div class="row">
+                                                    <div class="col-xl-12 font-size-16 text-white-50 mb-1">Emp. Name
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xl-12 font-size-16 text-white-50 mb-1">Skill Level
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xl-12 font-size-16 text-white-50 mb-1">Emp. ID</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <div  class="row">
+                                                    <div id='empName' class="col-xl-12 font-size-16 mb-1">USER20</div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xl-12 font-size-16 mb-1">ST20</div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xl-12 font-size-16 mb-1">4</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Profile card end -->
+                    </div>
+
+                    <div class="col-xl-2">
+                        <!-- waste capture card start -->
+                        <div class="card bg-dark border-dark text-light text-sm-center">
+                            <div class="card-body ">
+                                <button class="my-3 btn btn-primary" type="button">
+                                    Logout
+                                </button>
+                            </div>
+                        </div>
+                        <!-- waste capture card end -->
+                    </div>
+
+                </div>
+                <!-- header end -->
+
+                <div class="row">
+
+                    <div class="col-xl-12 text-end">
+                        <!-- waste capture card start -->
+                        <div class="card text-light list-inline ">
+                            <div class="card-body ">
+                                <button id="home_button" class="my-2 btn btn-primary" type="button">
+                                    Home
+                                </button>
+                                <button id="child_button" class="my-2 btn btn-primary" type="button">
+                                    Child Part Details
+                                </button>
+                                <button id="status_button" class="my-2 btn btn-primary" type="button">
+                                    Status
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- Page content start -->
+                <div id="table_content" class="row">
+                    <!-- page content left side start -->
+                    <div class="col-xl-12">
+                        <!-- Order Release Table start-->
+                        <div class="row">
+                            <!-- process centent right part start -->
+                            <!-- form 1 start -->
+                            <div class="col-lg-12">
+
+                                {% comment %} Status Table {% endcomment %}
+                                <div style="display: none;" id="home_table" class="card">
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <!-- table start -->
+                                            <table id="example" class="table table-bordered dt-responsive  nowrap w-100"
+                                                data-bs-toggle="modal" data-bs-target=".bs-example-modal-center5">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Release Date</th>
+                                                        <th>TPL Number</th>
+                                                        <th>FAB Number</th>
+                                                        <th>PD No.</th>
+                                                        <th>Status</th>
+                                                        <th>Model Code</th>
+                                                        <th>Description</th>
+                                                        <th>TPL Description</th>
+                                                        <th>Completed Date</th>
+                                                    </tr>
+                                                </thead>
+        
+        
+                                                <tbody>
+                                                {% for i in order_release_data%}
+                                                    <tr>
+                                                        <td>{{i.Release_Date}}</td>
+                                                        <td>{{i.TPL_No}}</td>
+                                                        <td>{{i.FAB_NO}}</td>
+                                                        <td>{{i.pd_no}}</td>
+                                                        <td>{{i.Status}}</td>
+                                                        <td>{{i.Model_Code}}</td>
+                                                        <td>{{i.Description}}</td>
+                                                        <td>{{i.TPL_Description}}</td>
+                                                        <td>{{i.Completed_Date}}</td>
+                                                    </tr>
+                                                {% endfor %}
+        
+                                                </tbody>
+                                            </table>
+                                            <div id="myModal" class="modal fade bs-example-modal-center5" tabindex="-1"
+                                                role="dialog" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title">Selected Order Details</h5>
+                                                            <button type="button" class="btn-close"
+                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <form method="POST">
+                                                            {% csrf_token %}
+                                                            <div class="modal-body">
+                                                                <p style=" text-align: start;"
+                                                                    class="text-light bg-dark px-2">Fab No.:
+                                                                </p>
+                                                                <p style="text-align: center;">
+                                                                    <input style='border: 0px; text-align: center' name='fab_number' id="fabData" readonly>
+                                                                </p>
+
+                                                                <p style=" text-align: start;"
+                                                                    class="text-light bg-dark px-2">TPL No.:
+                                                                </p>
+
+                                                                <p style="text-align: center;">
+                                                                    <input style='border: 0px; text-align: center' name='tpl_number' id="tplData" readonly>
+                                                                </p>
+
+                                                                {% comment %} <input id='empNameField' name='emp name'> {% endcomment %}
+
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="submit"
+                                                                    class="btn btn-primary w-md">Ok</button>
+
+                                                                <button id="popup_close" type="submit"
+                                                                    class="btn btn-primary w-md">Cancel</button>
+                                                            </div>
+                                                        </form>
+
+                                                    </div><!-- /.modal-content -->
+                                                </div><!-- /.modal-dialog -->
+                                            </div><!-- /.modal -->
+                                        </div>
+                                        <!-- table end -->
+                                        <br>
+                                        <br>
+                                        <!-- Error table start -->
+                                        <!-- Error table end -->
+
+                                    </div>
+                                </div>
+
+                                <div style="display: none;" id="status_table" class="card">
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <!-- table start -->
+                                            <table id="example12345" class="table table-bordered dt-responsive  nowrap w-100"
+                                                data-bs-toggle="modal" data-bs-target=".bs-example-modal-center5">
+                                                <thead>
+                                                    <tr>
+                                                        <th>TPL _No</th>
+                                                        <th>FAB_No</th>
+                                                        <th>Release_Date</th>
+                                                        <th>TPL_Description</th>
+
+                                                    </tr>
+                                                </thead>
+
+
+                                                <tbody>
+
+                                                    <tr>
+                                                        <td>TPL_1</td>
+                                                        <td>BIGSO44706</td>
+                                                        <td>6/18/2020 11:16am</td>
+                                                        <td>EG22-C-50</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>TPL_2</td>
+                                                        <td>BIGSO44706</td>
+                                                        <td>6/18/2020 11:16am</td>
+                                                        <td>EG22-C-50</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>TPL_3</td>
+                                                        <td>BIGSO44706</td>
+                                                        <td>6/18/2020 11:16am</td>
+                                                        <td>EG22-C-50</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>TPL_4</td>
+                                                        <td>BIGSO44706</td>
+                                                        <td>6/18/2020 11:16am</td>
+                                                        <td>EG22-C-50</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>TPL_5</td>
+                                                        <td>BIGSO44706</td>
+                                                        <td>6/18/2020 11:16am</td>
+                                                        <td>EG22-C-50</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>TPL_6</td>
+                                                        <td>BIGSO44706</td>
+                                                        <td>6/18/2020 11:16am</td>
+                                                        <td>EG22-C-50</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>TPL_7</td>
+                                                        <td>BIGSO44706</td>
+                                                        <td>6/18/2020 11:16am</td>
+                                                        <td>EG22-C-50..</td>
+                                                    </tr>
+
+
+                                                </tbody>
+                                            </table>
+                                            
+                                        </div>
+                                        <!-- table end -->
+                                        <br>
+                                        <br>
+                                        <!-- Error table start -->
+                                        <!-- Error table end -->
+
+                                    </div>
+                                </div>
+
+                                {% comment %} Child Table {% endcomment %}
+                                <div style="display: none;" id="child_table" class="card">
+                                    <!-- <div class="card-header">
+                                         <h4 class="card-title">Default Datatable</h4>
+     
+                                     </div>-->
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table id="datatable-buttons" class="table table-bordered dt-responsive  nowrap w-100">
+                                                <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>PO No</th>
+                                                        <th>Fab Number</th>
+                                                        <th>TPL Number</th>
+                                                        <th>Emp. ID</th>
+                                                        <th>Emp. Name</th>
+                                                        <th>Date and time</th>
+                                                        
+                                                    </tr>
+                                                </thead>
+
+
+                                                <tbody>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>210043945</td>
+                                                        <td>UVIS040028</td>
+                                                        <td>S014905</td>
+                                                        <td>102254</td>
+                                                        <td>Francis M</td>
+                                                        <td>12/20/2022 2:22 PM</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>210043945</td>
+                                                        <td>UVIS040028</td>
+                                                        <td>S014905</td>
+                                                        <td>102254</td>
+                                                        <td>Francis M</td>
+                                                        <td>12/20/2022 2:22 PM</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>210043945</td>
+                                                        <td>UVIS040028</td>
+                                                        <td>S014905</td>
+                                                        <td>102254</td>
+                                                        <td>Francis M</td>
+                                                        <td>12/20/2022 2:22 PM</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>210043945</td>
+                                                        <td>UVIS040028</td>
+                                                        <td>S014905</td>
+                                                        <td>102254</td>
+                                                        <td>Francis M</td>
+                                                        <td>12/20/2022 2:22 PM</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>210043945</td>
+                                                        <td>UVIS040028</td>
+                                                        <td>S014905</td>
+                                                        <td>102254</td>
+                                                        <td>Francis M</td>
+                                                        <td>12/20/2022 2:22 PM</td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                            <!-- end col -->
+                            <!-- form 1 end -->
+                            <!-- process centent left part end -->
+
+                        </div>
+
+                    </div>
+                    <!-- page content left side end -->
+
+                    <!-- page content right side start -->
+
+                    <!-- page content right side end -->
+                </div>
+                <!-- page content end -->
+
+            </div>
+
+            <!--End  container-fluid -->
+        </div>
+        <!-- End Page-content -->
+        {% include 'general/footer.html' %}
+    </div>
+
+    <!-- end main content-->
+</div>
+
+
+{% include 'general/right_side_bar.html' %}
+{% include 'general/vendor_script.html' %}
+
+
+
+<!-- Required datatable js -->
+<script src="{%static 'libs/datatables.net/js/jquery.dataTables.min.js' %}"></script>
+<script src="{%static 'libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js' %}"></script>
+
+<!-- Buttons examples -->
+<script src="{%static 'libs/datatables.net-buttons/js/dataTables.buttons.min.js' %}"></script>
+<script src="{%static 'libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js' %}"></script>
+<script src="{%static 'libs/jszip/jszip.min.js' %}"></script>
+<script src="{%static 'libs/pdfmake/build/pdfmake.min.js' %}"></script>
+<script src="{%static 'libs/pdfmake/build/vfs_fonts.js' %}"></script>
+<script src="{%static 'libs/datatables.net-buttons/js/buttons.html5.min.js' %}"></script>
+<script src="{%static 'libs/datatables.net-buttons/js/buttons.print.min.js' %}"></script>
+<script src="{%static 'libs/datatables.net-buttons/js/buttons.colVis.min.js' %}"></script>
+
+<!-- Responsive examples -->
+<script src="{%static 'libs/datatables.net-responsive/js/dataTables.responsive.min.js' %}"></script>
+<script src="{%static 'libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js' %}"></script>
+
+<!-- Datatable init js -->
+<script src="{%static 'js/pages/datatables.init.js' %}"></script>
+<script src="{%static 'js/app.js' %}"></script> 
+
+{% comment %}
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> {% endcomment %}
+<script src="{% static 'js/app.js' %}"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#popup_close").click(function () {
+            console.log("ghg")
+            $("#myModal").modal('hide');
+        });
+    });
+</script>
+
+<script>
+
+    $(document).ready(function () {
+
+        {% comment %} var empNameInt = $("#empName").html();
+        $("#empNameField").val(empNameInt); {% endcomment %}
+
+        $("#home_table").css("display", "block");
+
+        $("table tr").each(function () {
+            $(this).find("td:lt(2)").addClass("disabled");
+        });
+
+        $("table tr").click(function () {
+            var tplCellValue = $(this).find("td:eq(1)").text();
+            var febCellValue = $(this).find("td:eq(2)").text();
+
+            $("#tplData").val(tplCellValue);
+            $("#fabData").val(febCellValue);
+        });
+
+        $("#status_button").click(function () {
+
+            $("#status_table").css("display", "block");
+            $("#child_table").css("display", "none");
+            $("#home_table").css("display", "none");
+
+
+
+            console.log("clicked happended");
+        })
+
+        $("#child_button").click(function () {
+
+            $("#status_table").css("display", "none");
+            $("#child_table").css("display", "block");
+            $("#home_table").css("display", "none");
+
+
+            console.log("clicked happended");
+        })
+
+        $("#home_button").click(function () {
+
+            $("#home_table").css("display", "block");
+            $("#child_table").css("display", "none");
+            $("#status_table").css("display", "none");
+
+            console.log("clicked happended");
+        })
+
+    });
+
+</script>
+
+<script>
+
+    $(document).ready(function() {
+        var table = $('#example').DataTable( {
+            lengthChange: false,
+            buttons: [ 'copy', 'excel', 'pdf', 'colvis' ]
+        } );
+
+        table.buttons().container()
+            .appendTo( '#example_wrapper .col-md-6:eq(0)' );
+
+
+        var table2 = $('#example12345').DataTable( {
+            lengthChange: false,
+            buttons: [ 'copy', 'excel', 'pdf', 'colvis' ]
+        } );
+
+        table.buttons().container()
+            .appendTo( '#example12345_wrapper .col-md-6:eq(0)' );
+
+            
+    } );
+
+
+</script>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+<html>
+<body>
+<h1>Circle</h1>
+
+<div class="circle_custom" style='background-image: url("https://amymhaddad.s3.amazonaws.com/morocco-blue.png");'>
+    <canvas id="myCanvasCircle" width="500" height="500">your browser does not support HTML5 canvas tag.</canvas>
+</div>
+</body>
+</html>
+
+<script>
+
+    var canvas = document.getElementById('myCanvasCircle'),
+        ctx = canvas.getContext('2d'),
+        circle = {},
+        drag = false,
+        circleMade = false;
+
+    function draw() {
+        ctx.beginPath();
+        ctx.arc(circle.X, circle.Y, circle.radius, 0, 2.0 * Math.PI);
+        ctx.stroke();
+
+    }
+
+    function mouseDown(e) {
+
+        circle.startX = e.pageX - this.offsetLeft;
+        circle.startY = e.pageY - this.offsetTop;
+
+        circle.X = circle.startX;
+        circle.Y = circle.startY;
+
+        if (!circleMade) {
+            circle.radius = 0;
+        }
+
+        drag = true;
+    }
+
+    function mouseUp() {
+        drag = false;
+        circleMade = true;
+    }
+
+    function mouseMove(e) {
+        if (drag) {
+            circle.X = e.pageX - this.offsetLeft;
+            circle.Y = e.pageY - this.offsetTop;
+            if (!circleMade) {
+                circle.radius = Math.sqrt(Math.pow((circle.X - circle.startX), 2) + Math.pow((circle.Y - circle.startY), 2));
+            }
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            draw();
+
+
+        }
+    }
+
+    function init() {
+        canvas.addEventListener('mousedown', mouseDown, false);
+        canvas.addEventListener('mouseup', mouseUp, false);
+        canvas.addEventListener('mousemove', mouseMove, false);
+
+    }
+
+    init();
+</script>

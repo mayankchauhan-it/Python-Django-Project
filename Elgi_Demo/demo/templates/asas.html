@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+</head>
+<body>
+    <p>Cycle time: <span id="cycle-time">00:05</span></p>
+    <p>Actual Time: <span id="actualtime">00:00</span></p>
+    <p>Time difference: <span id="time-diff">0:00</span></p>
+    <button id="stop">Stop</button>
+
+</body>
+
+<script>
+
+    const cycleTimeEl = document.getElementById("cycle-time")
+    const actualtimeEl = document.getElementById("actualtime")
+    const timeDiffEl = document.getElementById("time-diff")
+    const stopBtn = document.getElementById("stop")
+
+    // console.log(cycleTimeEl.innerText)
+    // console.log(actualtimeEl.innerText)
+    // console.log(timeDiffEl.innerText)
+
+
+    cycleTimeElParts = cycleTimeEl.innerText.split(":")
+    actualtimeElParts = actualtimeEl.innerText.split(":")
+    timeDiffElParts = timeDiffEl.innerText.split(":")
+
+    // console.log(cycleTimeElParts)
+    // console.log(                      actualtimeElParts)  
+    // console.log(timeDiffElParts)
+
+    const cycleTimeInMs = (parseInt(cycleTimeElParts[0]*60) + parseInt(cycleTimeElParts[1]))*1000;
+    const actualTimeInMs = (parseInt(actualtimeElParts[0]*60) + parseInt(actualtimeElParts[1]))*1000;
+    console.log(cycleTimeInMs)
+
+    function getTimeDifference(cycleTime, actualTime) {
+        let diff = (cycleTime - actualTime) / 1000; // time difference in seconds
+        const isNegative = diff < 0; // check if time difference is negative
+        if (isNegative) {
+            diff = Math.abs(diff);
+        }
+        const minutes = Math.floor(diff / 60).toString().padStart(2, "0");
+        const seconds = (diff % 60).toFixed(0).toString().padStart(2, "0");
+        return {
+            minutes: isNegative ? `-${minutes}` : minutes,
+            seconds: seconds,
+        };
+    }
+
+    // Calculate the start time and actual time in miliseconds..
+
+    let startTime = Date.now()
+    // console.log(startTime);
+
+    // Update the timer every 100 miliseconds
+
+    const intervalId = setInterval( () =>{
+        cycleTimeElParts = cycleTimeEl.innerText.split(":")
+        const cycleTimeInMs = (parseInt(cycleTimeElParts[0]*60) + parseInt(cycleTimeElParts[1]))*1000;
+
+        cycleTimeElInSec = cycleTimeElParts[0]*60+cycleTimeElParts[1]
+
+        console.log(cycleTimeElInSec)
+
+        actualtimeElParts = actualtimeEl.innerText.split(":")
+        const actualTimeInMs = (parseInt(actualtimeElParts[0]*60) + parseInt(actualtimeElParts[1]))*1000+1000;
+
+        actualTimeInSec = actualtimeElParts[0]*60 + actualtimeElParts[1]
+        console.log(actualTimeInSec)
+
+
+        // console.log(actualTimeInMs)
+
+        const timeDifference = getTimeDifference(cycleTimeInMs, actualTimeInMs);
+        // console.log(`Time difference: ${timeDifference.minutes} minutes, ${timeDifference.seconds} seconds`);
+
+        // Format the remaining time as "M:SS"
+        const formattedDiffTime = `${timeDifference.minutes}:${timeDifference.seconds.toString().padStart(2, '0')}`;
+
+        timeDiffEl.innerText = formattedDiffTime;
+
+        console.log(formattedDiffTime);
+
+
+
+        // calculate remaining time in minutes and seconds. 
+        const remainingMs = Date.now() - startTime
+        // console.log(remainingMs, "Remaining");
+
+        // Calculate the remaining time in minutes and seconds
+        const elapsedSeconds = Math.floor(remainingMs / 1000) % 60;
+        const elapsedMinutes = Math.floor(remainingMs / 1000 / 60);
+
+        // console.log(elapsedSeconds);
+        // console.log(elapsedMinutes);
+
+         // Format the remaining time as "M:SS"
+        const formattedTime = `${elapsedMinutes}:${elapsedSeconds.toString().padStart(2, '0')}`;
+        // console.log(formattedTime);
+
+        // Update the cycle time and timer elements
+        actualtimeEl.innerText = formattedTime;
+        // console.log(formattedTime);
+
+         // Calculate the time difference in seconds
+        const timeDiffSecs = cycleTimeInMs - remainingMs;
+
+        // Calculate the time difference in minutes and seconds
+        const timeDiffMinutes = Math.floor(timeDiffSecs / 60);
+        const timeDiffSeconds = timeDiffSecs % 60;
+
+        // Format the time difference as "M:SS"
+        const formattedTimeDiff = `${Math.abs(timeDiffMinutes)}:${Math.abs(timeDiffSeconds).toString().padStart(2, '0')}`;
+
+        // console.log(timeDiffMinutes, "timeDiffMinutes");
+        // console.log(Math.abs(timeDiffSeconds), "timeDiffSecs");
+        // console.log(timeDiffMinutes, "timeDiffMinutes");
+        // console.log(formattedTimeDiff, "formattedTimeDiff");
+
+
+
+
+        // If the actual time is greater than or equal to the cycle time, stop the timer
+       if (remainingMs >= cycleTimeInMs) {
+        // clearInterval(intervalId);
+        actualtimeEl.style.backgroundColor = "red";
+       }
+
+        
+
+
+
+
+
+
+
+    },1000)
+
+    // console.log(cycleTimeEl.innerText)
+
+
+
+
+
+
+    
+    // Stop the timer when the button is clicked
+    stopBtn.addEventListener("click", () => {
+    clearInterval(intervalId);
+    document.getElementById("time-diff").innerText = elapsedMs;
+    });
+
+
+
+
+
+
+
+</script>
+
+<script>
+    // const popup = document.getElementById("popup");
+    document.addEventListener("keyup", function(event) {
+      if (event.key === "p" || event.key === "P") {
+        // console.log(event.key);
+        // popup.style.display = "block";
+      }
+    });
+  </script>
+   
+
+
+
+
+
+
+</html>

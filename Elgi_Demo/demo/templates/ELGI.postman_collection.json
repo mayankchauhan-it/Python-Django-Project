@@ -1,0 +1,147 @@
+{
+	"info": {
+		"_postman_id": "b324c33d-84de-4d5c-9782-c71b2e95e9a1",
+		"name": "ELGI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18964584"
+	},
+	"item": [
+		{
+			"name": "Testing",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://20.212.149.30:8000/substationapi",
+					"protocol": "http",
+					"host": [
+						"20",
+						"212",
+						"149",
+						"30"
+					],
+					"port": "8000",
+					"path": [
+						"substationapi"
+					]
+				}
+			},
+			"response": []
+		},
+
+		
+		{
+			"name": "Request Process",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "method",
+							"value": "process_seq",
+							"type": "text"
+						},
+						{
+							"key": "Tpl_No",
+							"value": "tpl11",
+							"type": "text"
+						},
+						{
+							"key": "Fab_No",
+							"value": "AUES034896",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://20.212.149.30:8000/substationapi",
+					"protocol": "http",
+					"host": [
+						"20",
+						"212",
+						"149",
+						"30"
+					],
+					"port": "8000",
+					"path": [
+						"substationapi"
+					]
+				}
+			},
+			"response": []
+		},
+
+
+
+		{
+			"name": "Process Validation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "FAB_NO",
+							"value": "AUES034896",
+							"type": "text"
+						},
+						{
+							"key": "TPL_No",
+							"value": "tpl11",
+							"type": "text"
+						},
+						{
+							"key": "Emp_Name",
+							"value": "Vivek",
+							"type": "text"
+						},
+						{
+							"key": "Emp_ID",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "Process_Seq_No",
+							"value": "1.0",
+							"type": "text"
+						},
+						{
+							"key": "Pro_Type_Code",
+							"value": "CP_AIREND",
+							"type": "text"
+						},
+						{
+							"key": "Actual_Time",
+							"value": "00:05",
+							"type": "text"
+						},
+						
+						{
+							"key": "method",
+							"value": "process_submit",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://20.212.149.30:8000/substationapi",
+					"protocol": "http",
+					"host": [
+						"20",
+						"212",
+						"149",
+						"30"
+					],
+					"port": "8000",
+					"path": [
+						"substationapi"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

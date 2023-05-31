@@ -1,0 +1,318 @@
+{% load static %}
+{% include 'general/main.html' %}
+<head>
+
+
+    {% include 'general/title_meta.html' %}
+    <!-- plugin css -->
+    <link href="{% static 'libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css' %}" rel="stylesheet" type="text/css"/>
+
+
+
+     <!-- DataTables -->
+    <link href="{% static 'libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />
+
+    <!-- Responsive datatable examples -->
+    <link href="{% static 'libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />
+    {% include 'general/head_css.html' %}
+
+</head>
+{% include 'general/body.html' %}
+<!-- Begin page -->
+<div id="layout-wrapper">
+{% include 'general/menu.html' %}
+
+     <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+    <div class="main-content">
+        <div class="page-content">
+            <div class="container-fluid">
+
+                <!-- start page title -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                            <h4 class="mb-sm-0 font-size-18">Alpa</h4>
+
+                            <div class="page-title-right">
+                                <ol class="breadcrumb m-0">
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">TPL Master</a></li>
+                                    <li class="breadcrumb-item active">TPL Master</li>
+                                </ol>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- end page title -->
+               <!-- alpha page start -->
+
+
+               
+                <div class="row">
+                    <div class="col-lg-9">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title">Demo</h5>
+                                <p class="card-title-desc">Use the buttons below to show and hide an offcanvas element via JavaScript that toggles the <code>.show</code> class on an element with the <code>.offcanvas</code> class.</p>
+                            </div><!-- end card header -->
+
+                            <div class="card-body">
+                                <div class="d-flex flex-wrap gap-2">
+                                    <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+                                        aria-controls="offcanvasExample">
+                                        Link with href
+                                    </a>
+                                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+                                        aria-controls="offcanvasExample">
+                                        Button with data-bs-target
+                                    </button>
+                                </div>
+
+                                <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+                                    <div class="offcanvas-header">
+                                        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+                                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                    </div>
+                                    <div class="offcanvas-body">
+                                        <div>
+                                            Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+                                        </div>
+                                        <div class="dropdown mt-3">
+                                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+                                                Dropdown button <i class="mdi mdi-chevron-down"></i>
+                                            </button>
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- end card body  -->
+                        </div><!-- end card -->
+                    </div><!-- end col -->
+
+                    <div class="col-lg-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div class="pt-1">
+                                        <p class="text-muted mb-0">
+                                            Cycle Time</p>
+                                        <p class="text-muted mb-0 mt-2">
+                                            13:10</p>
+                                        <p class="text-muted mb-0 mt-2">
+                                            Actual Time</p>
+                                        <p class="text-muted mb-0 mt-2">
+                                            05:08</p>
+                                    </div>
+                                </div>
+                            </div><!-- end card body  -->
+                        </div><!-- end card -->
+                    </div><!-- end col -->
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title">Demo</h5>
+                                <p class="card-title-desc">Use the buttons below to show and hide an offcanvas element via class.</p>
+                            </div><!-- end card header -->
+
+                            <div class="card-body">
+                                <div class="d-flex flex-wrap gap-2">
+                                    <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+                                        aria-controls="offcanvasExample">
+                                        Link with href
+                                    </a>
+                                    
+                                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+                                        aria-controls="offcanvasExample">
+                                        Button with data-bs-target
+                                    </button>
+                                </div> 
+                            </div><!-- end card body  -->
+                        </div><!-- end card -->
+                    </div><!-- end col -->
+
+                    <div class="col-lg-2">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title">Waste Capture</h5>
+                            </div><!-- end card header -->
+
+                            <div class="card-body">
+                                <div class="d-flex flex-wrap gap-2">
+                                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">P</button>
+                                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Q</button>
+                                </div>
+                            </div><!-- end card body  -->
+                        </div><!-- end card -->
+                    </div><!-- end col -->
+                    
+                    <div class="col-lg-2">
+                        <div class="card">
+                            
+                            <div class="card-body">
+                                <div class="d-flex flex-wrap gap-2">
+                                    <button class="my-3 btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Logout</button>
+                                </div>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <button class=" btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">UNIT SKIP</button>
+                                </div>
+                                
+                            </div><!-- end card body  -->
+                        </div><!-- end card -->
+                    </div><!-- end col -->
+
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title">Demo</h5>
+                                <p class="card-title-desc">Use the buttons below to show and hide an offcanvas element via class.</p>
+                            </div><!-- end card header -->
+
+                            <div class="card-body">
+                                <div class="d-flex flex-wrap gap-2">
+                                    <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+                                        aria-controls="offcanvasExample">
+                                        Link with href
+                                    </a>
+                                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+                                        aria-controls="offcanvasExample">
+                                        Button with data-bs-target
+                                    </button>
+                                </div>
+
+                                <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+                                    <div class="offcanvas-header">
+                                        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+                                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                    </div>
+                                    <div class="offcanvas-body">
+                                        <div>
+                                            Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+                                        </div>
+                                        <div class="dropdown mt-3">
+                                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+                                                Dropdown button <i class="mdi mdi-chevron-down"></i>
+                                            </button>
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- end card body  -->
+                        </div><!-- end card -->
+                    </div><!-- end col -->
+
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title">Placement</h5>
+                                <p class="card-title-desc">Offcanvas Diffrent Placement </p>
+                            </div><!-- end card header -->
+
+                            <div class="card-body">
+                                <div class="d-flex flex-wrap gap-2">
+                                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Toggle top offcanvas</button>
+                                    
+
+                                </div>
+
+                                
+                                <!-- top offcanvas -->
+                                <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+                                    <div class="offcanvas-header">
+                                        <h5 id="offcanvasTopLabel">Offcanvas top</h5>
+                                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                    </div>
+                                    <div class="offcanvas-body">
+                                        ...
+                                    </div>
+                                </div>
+
+                                <!-- right offcanvas -->
+                                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                                    <div class="offcanvas-header">
+                                        <h5 id="offcanvasRightLabel">Offcanvas Right</h5>
+                                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                    </div>
+                                    <div class="offcanvas-body">
+                                        ...
+                                    </div>
+                                </div>
+
+                                <!-- left offcanvas -->
+                                <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+                                    <div class="offcanvas-header">
+                                        <h5 id="offcanvasBottomLabel">Offcanvas Bottom</h5>
+                                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                    </div>
+                                    <div class="offcanvas-body">
+                                        ...
+                                    </div>
+                                </div>
+                            </div><!-- end card body  -->
+                        </div><!-- end card -->
+                    </div><!-- end col -->
+                    
+
+                </div>
+
+            </div><!-- end row -->
+        <!-- alpha page end -->
+
+
+        </div>
+        <!--End  container-fluid -->
+    </div>
+        <!-- End Page-content -->
+
+        {% include 'general/footer.html' %}
+    </div>
+    <!-- end main content-->
+</div>
+<!-- END layout-wrapper -->
+
+{% include 'general/right_side_bar.html' %}
+{% include 'general/vendor_script.html' %}
+
+
+
+
+        <!-- Required datatable js -->
+        <script src="{%static 'libs/datatables.net/js/jquery.dataTables.min.js' %}"></script>
+        <script src="{%static 'libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js' %}"></script>
+
+        <!-- Buttons examples -->
+        <script src="{%static 'libs/datatables.net-buttons/js/dataTables.buttons.min.js' %}"></script>
+        <script src="{%static 'libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js' %}"></script>
+        <script src="{%static 'libs/jszip/jszip.min.js' %}"></script>
+        <script src="{%static 'libs/pdfmake/build/pdfmake.min.js' %}"></script>
+        <script src="{%static 'libs/pdfmake/build/vfs_fonts.js' %}"></script>
+        <script src="{%static 'libs/datatables.net-buttons/js/buttons.html5.min.js' %}"></script>
+        <script src="{%static 'libs/datatables.net-buttons/js/buttons.print.min.js' %}"></script>
+        <script src="{%static 'libs/datatables.net-buttons/js/buttons.colVis.min.js' %}"></script>
+
+        <!-- Responsive examples -->
+        <script src="{%static 'libs/datatables.net-responsive/js/dataTables.responsive.min.js' %}"></script>
+        <script src="{%static 'libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js' %}"></script>
+
+        <!-- Datatable init js -->
+        <script src="{%static 'js/pages/datatables.init.js' %}"></script>
+        <script src="{%static 'js/app.js' %}"></script>
+</body>
+
+</html>

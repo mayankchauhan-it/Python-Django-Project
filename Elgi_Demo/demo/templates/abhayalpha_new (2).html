@@ -1,0 +1,3218 @@
+{% load static %}
+{% include 'general/main.html' %}
+<head>
+
+
+    {% include 'general/title_meta.html' %}
+    <!-- plugin css -->
+    <link href="{% static 'libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css' %}" rel="stylesheet" type="text/css"/>
+
+
+
+     <!-- DataTables -->
+    <link href="{% static 'libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+
+    
+    {% comment %} <!-- MDB -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css"
+    rel="stylesheet"
+    /> {% endcomment %}
+    <!-- Responsive datatable examples -->
+    <link href="{% static 'libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />
+    {% include 'general/head_css.html' %}
+
+    
+    <style>
+        .scrollme {
+            overflow-x: auto;
+        }
+        hidden-panel {
+            display: none;
+        }
+        .data_pointer
+        {
+            cursor:pointer;
+
+        }
+        td:hover
+        {
+            color:#ee3420;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+
+</head>
+{% include 'general/body.html' %}
+<!-- Begin page -->
+<div id="layout-wrapper">
+{% include 'general/top_bar_for_operator.html' %}
+
+     <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+    <div class="">
+        <div class="page-content">
+            <div class="container-fluid">
+
+                <!-- start page title -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                            <h4 class="mb-sm-0 font-size-18">Alpha Line-Sub Station</h4>
+
+                            <div class="page-title-right">
+                                <ol class="breadcrumb m-0">
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Alpha Line-Sub Station
+                                            1</a></li>
+                                    <li class="breadcrumb-item active">Alpha Line-Sub Station 1</li>
+                                </ol>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- end page title -->
+                <!-- alpha page start -->
+
+
+
+                <div class="row">
+                    <div class="col-lg-9">
+                        <div class="card bg-dark border-dark text-light">
+                            <div class="card-body">
+                                <div style="height: 150px" class="row justify-content-between">
+                                    <div class="col-md-2">
+                                        <img style="height: 100%;" class="img-fluid mx-auto d-block rounded"
+                                            src="{% static 'images/users/300-1.png' %}" id="mainimage" alt="Card image">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-xl-4">
+                                                <div class="row">
+                                                    <div class="col-xl-12 font-size-18 text-white-50 mb-1">Emp. Name
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xl-12 font-size-18 text-white-50 mb-1">Emp. ID</div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xl-12 font-size-18 text-white-50 mb-1">Skill Level
+                                                    </div>
+                                                </div>
+                                                <!-- <div class="row">
+                                                    <div  class="col-xl-12 font-size-22 text-white-50 ">Process</div>
+                                                </div> -->
+
+                                            </div>
+                                            <div class="col-xl-8">
+                                                <div class="row">
+                                                    <div class="col-xl-12 font-size-18 mb-1" id="empname">Abhay</div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xl-12 font-size-18 mb-1" id="empid">3400</div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xl-12 font-size-18 mb-1">10</div>
+                                                </div>
+                                                <!-- <div class="row">
+                                                    <div class="col-xl-12 font-size-22 mb-1" id="processname">AIREND_TEST</div>
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="row">
+                                                    <div  style="font-size: 26px;" class="col-md-4 text-white-50 ">Process</div>
+                                                    <div style="font-size: 26px;" class="col-md-8 mb-1 text-light" id="processname">AIREND_TEST</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <!-- <div class="col-md-1">
+                                        <br>
+                                    </div> -->
+                                    <div class="col-md-4">
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <div class="row">
+                                                    <div class="col-xl-12 font-size-18 text-white-50 mb-1">FAB</div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xl-12 font-size-18 text-white-50 mb-1">Model</div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xl-12 font-size-18 text-white-50 mb-1">TPL</div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <div class="row">
+                                                    <div class="col-xl-12 font-size-18 mb-1" id="fab">BSISO38928</div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xl-12 font-size-18 mb-1">EG 37 - 8.5 - 60</div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xl-12 font-size-18 mb-1" id="tpl">S123456</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- end col -->
+
+                    <div style="text-align: center;" class="col-lg-3">
+                        <!-- <div  style="height: 80%;" class="card"> -->
+                        <div style="height: 90%;" class="card bg-dark border-dark text-light">
+                            <div class="row justify-content-between">
+                                <div style="margin-top: 10px;" class="col-md-12 ">
+                                    <h3 class="text-muted mb-0">
+                                        Cycle Time</h3>
+                                    <h1  id="cycletimemain"  class="text-light mb-0 mt-2">
+                                        00:10</h4>
+                                </div>
+
+                                <div class="col-md-12 ">
+                                    <h3 class="text-muted mb-0 mt-2 ">
+                                        Actual Time</h3>
+                                    <h1 style="color:white" id="actualtimemain" class=" mb-0 mt-2">
+                                        </h1>
+                                </div>
+                        </div><!-- end card -->
+                    </div><!-- end col -->
+                </div>
+
+                <div class="row">
+                    <div style="height: 500px" class="col-lg-8">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card mb-2">
+                                    <div class="card-title bg-dark rounded text-center text-light">
+                                        <div class="row">
+                                            <div style="font-size: 18px;" class="col-md-4">Process Type</div>
+                                            <div style="font-size: 18px;" class="col-md-4">Total Process</div>
+                                            <div style="font-size: 18px;" class="col-md-4">Completed Process</div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row text-center bg-dark">
+                                    </div>
+                                    <div class="row text-center">
+                                        <div style="font-size: 18px;" class="col-md-4" id="processtype">CP_AIREND</div>
+                                        <div style="font-size: 18px;" class="col-md-4" id="totalprocess">15</div>
+                                        <div style="font-size: 18px;" class="col-md-4" id="completedprocess">10</div>
+                                    </div>
+                                </div><!-- end card -->
+                            </div>
+                            <!--1 CP_AIREND PORTION STARTED FROM HERE -->
+
+                            <div id="CP_AIREND" style="display: block; height: 320px" class="col-lg-12">
+                                <div style="height: 100%;" class="card">
+                                    <div class="card-body">
+                                        <div id="box" class="row">
+                                            
+                                            <div class="col-xl-6">
+                                                <table id="datatable1" class="table table-bordered dt-responsive nowrap w-100">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Part No.</td>
+                                                            <td> <input type="text" id="txtCpAirend_PartNo"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>REV No</td>
+                                                            <td><input type="text" id="txtCpAirend_RevNo"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Serial No</td>
+                                                            <td><input type="text" id="txtCpAirend_SerialNo"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp;</td>
+                                                            <td>&nbsp;</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <div class="row">
+                                                    <button  id="CP_AIREND_BTN" type="button" class="btn btn-primary btn-lg">SUBMIT</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- end card body  -->
+                                </div><!-- end card -->
+                            </div>
+
+                            <!-- CP_AIREND PORTION ENDED FROM HERE -->
+
+                            <!--2 CP_BELT_DETAILS PORTION STARTED FROM HERE -->
+
+                            <div id="CP_BELT_DETAILS" style="display: none;"  class="col-lg-12">
+                                <div style="height: 100%;" class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <table id="datatable1" class="table table-bordered dt-responsive nowrap w-100">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Part No.</td>
+                                                            <td> <input type="text" id="txtCpBeltDetails_PartNo"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>REV No</td>
+                                                            <td><input type="text" id="txtCpBeltDetails_RevNo"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Batch No. 1</td>
+                                                            <td><input type="text" id="txtCpBeltDetails_Bactch1"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Batch No. 2</td>
+                                                            <td><input type="text" id="txtCpBeltDetails_Bactch2"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Batch No. 3</td>
+                                                            <td><input type="text" id="txtCpBeltDetails_Bactch3"></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <div class="row">
+                                                    <button ID="CP_BELT_DETAILS_BTN"  type="button" class="btn btn-primary btn-lg">SUBMIT</button>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xl-6 text-dark">
+                                                <table id="datatable1" class="table table-bordered dt-responsive nowrap w-100">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Belt Length</td>
+                                                            <td><input type="text" id="txtCpBeltDetails_BeltLength"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Span Length</td>
+                                                            <td><input type="text" id="txtCpBeltDetails_SpanLength"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Belt Mass</td>
+                                                            <td><input type="text" id="txtCpBeltDetails_BeltMass"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Belt Tension</td>
+                                                            <td><input type="text" id="txtCpBeltDetails_BeltTension"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Belt Make</td>
+                                                            <td>
+                                                               <input list="browsers" name="belt_make" id="txtCpBeltDetails_BeltMake" class="">
+                                                                    <datalist id="browsers">
+                                                                        <option value="A">
+                                                                        <option value="B">
+                                                                        <option value="C">
+                                                                    </datalist>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                
+                                            </div>
+                                        </div>
+                                    </div><!-- end card body  -->
+                                </div><!-- end card -->
+                            </div>
+
+                            <!-- CP_BELT_DETAILS PORTION ENDED FROM HERE -->
+
+                            <!--3 CP_CONTROL_PANEL START FROM HERE -->
+
+                            <div id="CP_CONTROL_PANEL" style="display: none;" class="col-lg-12">
+                                <div style="height: 100%;" class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <table id="datatable1" class="table table-bordered dt-responsive nowrap w-100">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Part No.</td>
+                                                            <td> <input type="text" id="txtCpControlPanel_PartNo"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>REV No</td>
+                                                            <td> <input type="text" id="txtCpControlPanel_RevNo"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Serial No</td>
+                                                            <td> <input type="text" id="txtCpControlPanel_SerialNo"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Model</td>
+                                                            <td>
+                                                                <input list="browsers" name="model" id="txtCpControlPanel_Model" class="">
+                                                                    <datalist id="browsers">
+                                                                        <option value="A">
+                                                                        <option value="B">
+                                                                        <option value="C">
+                                                                    </datalist>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp;</td>
+                                                            <td> &nbsp; </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <div class="row">
+                                                    <button ID="CP_CONTROL_PANEL_BTN"  type="button" class="btn btn-primary btn-lg">SUBMIT</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- end card body  -->
+                                </div><!-- end card -->
+                            </div>
+
+                            <!-- CP_CONTROL_PANEL END FROM HERE -->
+
+                            <!--4 CP_COOLER START FROM HERE -->
+
+                            <div id="CP_COOLER" style="display: none;"  class="col-lg-12">
+                                <div style="height: 100%;" class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <table id="datatable1" class="table table-bordered dt-responsive nowrap w-100">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Part No.</td>
+                                                            <td> <input type="text" id="txtCpCooler_PartNo"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>REV No</td>
+                                                            <td><input type="text" id="txtCpCooler_RevNo"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Serial No</td>
+                                                            <td><input type="text" id="txtCpCooler_SerialNo"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp;</td>
+                                                            <td>&nbsp;</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <div class="row">
+                                                    <button ID="CP_COOLER_BTN"  type="button" class="btn btn-primary btn-lg">SUBMIT</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- end card body  -->
+                                </div><!-- end card -->
+                            </div>
+                            <!-- CP_COOLER_PANEL END FROM HERE -->
+
+                            <!--5 CP_DRIVE_PULLY START FROM HERE -->
+
+                            <div id="CP_DRIVE_PULLY" style="display: none;"  class="col-lg-12">
+                                <div style="height: 100%;" class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <table id="datatable1" class="table table-bordered dt-responsive nowrap w-100">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Part No.</td>
+                                                            <td> <input type="text" id="txtCpDrivePully_PartNo"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>REV No</td>
+                                                            <td><input type="text" id="txtCpDrivePully_RevNo"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Serial No</td>
+                                                            <td><input type="text" id="txtCpDrivePully_SerialNo"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Dia of Pulley</td>
+                                                            <td>
+                                                                <input list="browsers" name="belt_make" id="txtCpDrivePully_Diaofpully" class="">
+                                                                    <datalist id="browsers">
+                                                                        <option value="1">
+                                                                        <option value="2">
+                                                                        <option value="3">
+                                                                    </datalist>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp;</td>
+                                                            <td> &nbsp; </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <div class="row">
+                                                    <button ID="CP_DRIVE_PULLY_BTN" type="button" class="btn btn-primary btn-lg">SUBMIT</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- end card body  -->
+                                </div><!-- end card -->
+                            </div>
+                            <!-- CP_DRIVE_PULLY END FROM HERE -->
+
+                            <!--6 CP_DRIVEN_PULLY START FROM HERE -->
+
+                            <div id="CP_DRIVEN_PULLY" style="display: none;"  class="col-lg-12">
+                                <div style="height: 100%;" class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <table id="datatable1" class="table table-bordered dt-responsive nowrap w-100">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Part No.</td>
+                                                            <td> <input type="text" id="txtCpDrivenPully_PartNo"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>REV No</td>
+                                                            <td><input type="text" id="txtCpDrivenPully_RevNo"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Serial No</td>
+                                                            <td><input type="text" id="txtCpDrivenPully_SerialNo"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Dia of Pulley</td>
+                                                            <td>
+                                                                <input list="browsers" name="belt_make" id="txtCpDrivenPully_Diaofpully" class="">
+                                                                    <datalist id="browsers">
+                                                                        <option value="1">
+                                                                        <option value="2">
+                                                                        <option value="3">
+                                                                    </datalist>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp;</td>
+                                                            <td> &nbsp; </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <div class="row">
+                                                    <button ID="CP_DRIVEN_PULLY_BTN"  type="button" class="btn btn-primary btn-lg">SUBMIT</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- end card body  -->
+                                </div><!-- end card -->
+                            </div>
+                            <!-- CP_DRIVEN_PULLY END FROM HERE -->
+
+                            <!--7 CP_DRYER START FROM HERE -->
+
+                            <div id="CP_DRYER" style="display: none;" class="col-lg-12">
+                                <div style="height: 100%;" class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <table id="datatable1" class="table table-bordered dt-responsive nowrap w-100">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Part No.</td>
+                                                            <td> <input type="text" id="txtCpDryer_PartNo"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>REV No</td>
+                                                            <td><input type="text" id="txtCpDryer_RevNo"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Serial No</td>
+                                                            <td><input type="text" id="txtCpDryer_SerialNo"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp;</td>
+                                                            <td> &nbsp; </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <div class="row">
+                                                    <button ID="CP_DRYER_BTN"  type="button" class="btn btn-primary btn-lg">SUBMIT</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- end card body  -->
+                                </div><!-- end card -->
+                            </div>
+
+                            <!-- CP_DRYER END FROM HERE -->
+
+                            <!--8 CP_FAN_MOTOR START FROM HERE -->
+
+                            <div id="CP_FAN_MOTOR" style="display: none;" class="col-lg-12">
+                                <div style="height: 100%;" class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <table id="datatable1" class="table table-bordered dt-responsive nowrap w-100">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Part No</td>
+                                                            <td> <input type="text" id="txtCpFanMotor_PartNo"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>REV No</td>
+                                                            <td><input type="text" id="txtCpFanMotor_RevNo"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Serial No</td>
+                                                            <td><input type="text" id="txtCpFanMotor_SerialNo"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>KW-Type</td>
+                                                            <td> <input type="text" id="txtCpFanMotor_KWType"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp;</td>
+                                                            <td> &nbsp; </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <div class="row">
+                                                    <button ID="CP_FAN_MOTOR_BTN"  type="button" class="btn btn-primary btn-lg">SUBMIT</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- end card body  -->
+                                </div><!-- end card -->
+                            </div>
+
+                            <!-- CP_FAN_MOTOR END FROM HERE -->
+
+                            <!--9 CP_MOTOR START FROM HERE -->
+
+                            <div id="CP_MOTOR" style="display: none;" class="col-lg-12">
+                                <div style="height: 100%;" class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <table id="datatable1" class="table table-bordered dt-responsive nowrap w-100">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Part No</td>
+                                                            <td> <input type="text" id="txtCpMotor_PartNo"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>REV No</td>
+                                                            <td><input type="text" id="txtCpMotor_RevNo"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Serial No</td>
+                                                            <td><input type="text" id="txtCpMotor_SerialNo"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>KW-Type</td>
+                                                            <td> <input type="text" id="txtCpMotor_KWType"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Efficiency</td>
+                                                            <td> <input type="text" id="txtCpMotor_Efficiency"> </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <div class="row">
+                                                    <button ID="CP_MOTOR_BTN"  type="button" class="btn btn-primary btn-lg">SUBMIT</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- end card body  -->
+                                </div><!-- end card -->
+                            </div>
+
+                            <!-- CP_MOTOR END FROM HERE -->
+
+                            <!--10 CP_NEURON START FROM HERE -->
+
+                            <div id="CP_NEURON" style="display: none;" class="col-lg-12">
+                                <div style="height: 100%;" class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <table id="datatable1" class="table table-bordered dt-responsive nowrap w-100">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Part No.</td>
+                                                            <td> <input type="text" id="txtCpNeuron_PartNo"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>REV No</td>
+                                                            <td><input type="text" id="txtCpNeuron_RevNo"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Serial No</td>
+                                                            <td><input type="text" id="txtCpNeuron_SerialNo"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp;</td>
+                                                            <td> &nbsp; </td>
+                                                        </tr>
+                                                        
+                                                    </tbody>
+                                                </table>
+                                                <div class="row">
+                                                    <button ID="CP_NEURON_BTN"  type="button" class="btn btn-primary btn-lg">SUBMIT</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- end card body  -->
+                                </div><!-- end card -->
+                            </div>
+
+                            <!-- CP_NEURON END FROM HERE -->
+
+                            <!--11 CP_TANK START FROM HERE -->
+
+                            <div id="CP_TANK" style="display: none;" class="col-lg-12">
+                                <div style="height: 100%;" class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <table id="datatable1" class="table table-bordered dt-responsive nowrap w-100">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Part No.</td>
+                                                            <td> <input type="text" id="txtCpTank_PartNo"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>REV No</td>
+                                                            <td><input type="text" id="txtCpTank_RevNo"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Serial No</td>
+                                                            <td><input type="text" id="txtCpTank_SerialNo"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp;</td>
+                                                            <td> &nbsp; </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <div class="row">
+                                                    <button ID="CP_TANK_BTN"  type="button" class="btn btn-primary btn-lg">SUBMIT</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- end card body  -->
+                                </div><!-- end card -->
+                            </div>
+
+                            <!-- CP_TANK END FROM HERE -->
+
+                            <!--12 CP_VFD START FROM HERE -->
+
+                            <div id="CP_VFD" style="display: none;" class="col-lg-12">
+                                <div style="height: 100%;" class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <table id="datatable1" class="table table-bordered dt-responsive nowrap w-100">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Part No.</td>
+                                                            <td> <input type="text" id="txtCpVfd_PartNo"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>REV No</td>
+                                                            <td><input type="text" id="txtCpVfd_RevNo"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Serial No</td>
+                                                            <td><input type="text" id="txtCpVfd_SerialNo"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp;</td>
+                                                            <td> &nbsp; </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <div class="row">
+                                                    <button ID="CP_VFD_BTN"  type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#mybox">SUBMIT</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- end card body  -->
+                                </div><!-- end card -->
+                            </div>
+
+                            <!-- CP_VFD END FROM HERE -->
+
+
+                            <!--16 CP_AIREND_CHECK START FROM HERE -->
+
+                            <div id="CP_AIREND_CHECK" style="display: none;" class="col-lg-12">
+                                <div style="height: 100%;" class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <table id="datatable1" class="table table-bordered dt-responsive nowrap w-100">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>CP_AIREND_CHECK Part No.</td>
+                                                            <td> <input type="text" id="txtCpAIREND_CHECK_PartNo"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>REV No</td>
+                                                            <td> <input type="text" id="txtCpAIREND_CHECK_RevNo"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Serial No</td>
+                                                            <td> <input type="text" id="txtCpAIREND_CHECK_SerialNo"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp;</td>
+                                                            <td> &nbsp; </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp;</td>
+                                                            <td> &nbsp; </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <div class="row">
+                                                    <button id="CP_AIREND_CHECK_BTN"  type="button" class="btn btn-primary btn-sm">SUBMIT</button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div><!-- end card body  -->
+                                </div><!-- end card -->
+                            </div>
+
+                            <!-- CP_AIREND_CHECK END FROM HERE -->
+
+                            <!--17 CP_BELT_TENSION START FROM HERE -->
+
+                            <div id="CP_BELT_TENSION" style="display: none;" class="col-lg-12">
+                                <div style="height: 100%;" class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <table id="datatable1" class="table table-bordered dt-responsive nowrap w-100">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>CP_BELT_TENSIONPart No.</td>
+                                                            <td> <input type="text"  id="txtCP_BELT_TENSION_PartNo"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>REV No</td>
+                                                            <td> <input type="text"  id="txtCP_BELT_TENSION_RevNo">> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Serial No</td>
+                                                            <td> <input type="text" id="txtCP_BELT_TENSION_SerialNo">>  </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp;</td>
+                                                            <td> &nbsp; </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp;</td>
+                                                            <td> &nbsp; </td>
+                                                        </tr>
+                                                    </tbody>
+                                                    <div class="row">
+                                                        <button id="CP_BELT_TENSION_BTN"  type="button" class="btn btn-primary btn-sm">SUBMIT</button>
+                                                    </div>
+                                                </table>
+                                            </div>
+
+                                        </div>
+                                    </div><!-- end card body  -->
+                                </div><!-- end card -->
+                            </div>
+
+                            <!-- CP_BELT_TENSION END FROM HERE -->
+                            
+                            <!--18 CP_CANPOY START FROM HERE -->
+
+                            <div id="CP_CANPOY" style="display: none;" class="col-lg-12">
+                                <div style="height: 100%;" class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <table id="datatable1" class="table table-bordered dt-responsive nowrap w-100">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>CP_CANPOY Part No.</td>
+                                                            <td> <input type="text" id="txtCpCanpoy_PartNo"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>REV No</td>
+                                                            <td> <input type="text" id="txtCpCanpoy_RevNo"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Serial No</td>
+                                                            <td> <input type="text" id="txtCpCanpoy_SerialNo"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp;</td>
+                                                            <td> &nbsp; </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp;</td>
+                                                            <td> &nbsp; </td>
+                                                        </tr>
+                                                    </tbody>
+                                                    <div class="row">
+                                                    <button id="CP_CANPOY_BTN"  type="button" class="btn btn-primary btn-sm">SUBMIT</button>
+                                                </div>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div><!-- end card body  -->
+                                </div><!-- end card -->
+                            </div>
+
+                            <!-- CP_CANPOY END FROM HERE -->
+
+                            <!--19 CP_COOLER_CHECK START FROM HERE -->
+
+                            <div id="CP_COOLER_CHECK" style="display: none;" class="col-lg-12">
+                                <div style="height: 100%;" class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <table id="datatable1" class="table table-bordered dt-responsive nowrap w-100">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>CP_COOLER_CHECK Part No.</td>
+                                                            <td> <input type="text" id="txtCpCoolerCheck_PartNo"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>REV No</td>
+                                                            <td> <input type="text" id="txtCpCoolerCheck_RevNo"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Serial No</td>
+                                                            <td> <input type="text" id="txtCpCoolerCheck_SerialNo"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp;</td>
+                                                            <td> &nbsp; </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp;</td>
+                                                            <td> &nbsp; </td>
+                                                        </tr>
+                                                    </tbody>
+                                                    <div class="row">
+                                                        <button id="CP_COOLER_CHECK_BTN"  type="button" class="btn btn-primary btn-sm">SUBMIT</button>
+                                                    </div>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div><!-- end card body  -->
+                                </div><!-- end card -->
+                            </div>
+
+                            <!-- CP_COOLER_CHECK END FROM HERE -->
+
+                            <!--20 CP_DRIVE_COUPLING START FROM HERE -->
+
+                            <div id="CP_DRIVE_COUPLING" style="display: none;" class="col-lg-12">
+                                <div style="height: 100%;" class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <table id="datatable1" class="table table-bordered dt-responsive nowrap w-100">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Spec</td>
+                                                            <td> <input type="text" id="txtCpDriveCoupling_Spec"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Actual</td>
+                                                            <td> <input type="text" id="txtCpDriveCoupling_Actual"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Difference</td>
+                                                            <td> <input type="text" id="txtCpDriveCoupling_Difference"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Retest</td>
+                                                            <td> <input type="text" id="txtCpDriveCoupling_Retest">  </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp;</td>
+                                                            <td> &nbsp; </td>
+                                                        </tr>
+                                                    </tbody>
+                                                    <div class="row">
+                                                        <button id="CP_DRIVE_COUPLING_BTN"  type="button" class="btn btn-primary btn-sm">SUBMIT</button>
+                                                    </div>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div><!-- end card body  -->
+                                </div><!-- end card -->
+                            </div>
+
+                            <!-- CP_DRIVE_COUPLING END FROM HERE -->
+
+                            <!--21 CP_DRYER_CKECK START FROM HERE -->
+
+                            <div id="CP_DRYER_CKECK" style="display: none;" class="col-lg-12">
+                                <div style="height: 100%;" class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <table id="datatable1" class="table table-bordered dt-responsive nowrap w-100">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Part No.</td>
+                                                            <td> <input type="text" id="txtCpDryerCheck_PartNo"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>REV No</td>
+                                                            <td> <input type="text" id="txtCpDryerCheck_RevNo"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Serial No</td>
+                                                            <td> <input type="text" id="txtCpDryerCheck_SerialNo"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp;</td>
+                                                            <td> &nbsp; </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp;</td>
+                                                            <td> &nbsp; </td>
+                                                        </tr>
+                                                    </tbody>
+                                                    <div class="row">
+                                                        <button id="CP_DRYER_CKECK_BTN"  type="button" class="btn btn-primary btn-sm">SUBMIT</button>
+                                                    </div>
+                                                </table>
+                                            </div>
+
+                                            <div class="col-xl-6 text-dark">
+                                                <table id="datatable1" class="table table-bordered dt-responsive  nowrap w-100">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>&nbsp;</td>
+                                                            <td>
+                                                                &nbsp;
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp;</td>
+                                                            <td>
+                                                                &nbsp;
+
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp;</td>
+                                                            <td>
+                                                                &nbsp;
+
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp;</td>
+                                                            <td>
+                                                                &nbsp;
+
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp;</td>
+                                                            <td>
+                                                                &nbsp;
+
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div><!-- end card body  -->
+                                </div><!-- end card -->
+                            </div>
+
+                            <!-- CP_DRYER_CKECK END FROM HERE -->
+
+                            <!--22 CP_FAN_MOTOR_CHECK START FROM HERE -->
+
+                            <div id="CP_FAN_MOTOR_CHECK" style="display: none;" class="col-lg-12">
+                                <div style="height: 100%;" class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <table id="datatable1" class="table table-bordered dt-responsive nowrap w-100">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Part No.</td>
+                                                            <td> <input type="text" id="txtCpFanMotorCheck_PartNo"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>REV No</td>
+                                                            <td> <input type="text" id="txtCpFanMotorCheck_RevNo"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Serial No 1</td>
+                                                            <td> <input type="text" id="txtCpFanMotorCheck_SerialNo1"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Serial No 2</td>
+                                                            <td> <input type="text" id="txtCpFanMotorCheck_SerialNo2">  </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Make</td>
+                                                            <td> <input type="text" id="txtCpFanMotorCheck_Make">  </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <div class="row">
+                                                    <button id="CP_FAN_MOTOR_CHECK_BTN"  type="button" class="btn btn-primary btn-sm">SUBMIT</button>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xl-6">
+                                                <table id="datatable1" class="table table-bordered dt-responsive nowrap w-100">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>KW</td>
+                                                            <td> <input type="text" id="txtCpFanMotorCheck_KW"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Volt</td>
+                                                            <td> <input type="text" id="txtCpFanMotorCheck_Volt"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Amps</td>
+                                                            <td> <input type="text" id="txtCpFanMotorCheck_Amps"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Imax_A</td>
+                                                            <td><input type="text" id="txtCpFanMotorCheck_Imax_A"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp;</td>
+                                                            <td>&nbsp; </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div><!-- end card body  -->
+                                </div><!-- end card -->
+                            </div>
+
+                            <!-- CP_FAN_MOTOR_CHECK END FROM HERE -->
+
+                            <!--23 CP_MOTOR_CHECK START FROM HERE -->
+
+                            <div id="CP_MOTOR_CHECK" style="display: none;" class="col-lg-12">
+                                <div style="height: 100%;" class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-xl-4">
+                                                <table id="datatable1" class="table table-bordered dt-responsive nowrap w-100">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Part No</td>
+                                                            <td> <input type="text" id="txtCpMotorCheck_PartNo"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Rev No</td>
+                                                            <td> <input type="text" id="txtCpMotorCheck_RevNo"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Serial No</td>
+                                                            <td> <input type="text" id="txtCpMotorCheck_SerialNo"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>KW</td>
+                                                            <td> <input type="text" id="txtCpMotorCheck_KW"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Make</td>
+                                                            <td> <input type="text" id="txtCpMotorCheck_Make"> </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <div class="row">
+                                                    <button id="CP_MOTOR_CHECK_BTN"  type="button" class="btn btn-primary btn-sm">SUBMIT</button>
+                                                </div>
+
+                                                
+                                            </div>
+
+                                            <div class="col-xl-4">
+                                                <table id="datatable1" class="table table-bordered dt-responsive nowrap w-100">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Class</td>
+                                                            <td> <input type="text" id="txtCpMotorCheck_Class"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Mfg Date</td>
+                                                            <td> <input type="text" id="txtCpMotorCheck_Mfg Date"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Amps</td>
+                                                            <td> <input type="text" id="txtCpMotorCheck_Amps"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Frame</td>
+                                                            <td> <input type="text" id="txtCpMotorCheck_Frame"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Volt</td>
+                                                            <td> <input type="text" id="txtCpMotorCheck_Volt"> </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                
+                                            </div>
+
+                                            <div class="col-xl-4">
+
+                                                <table id="datatable1" class="table table-bordered dt-responsive nowrap w-100">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Efficiency</td>
+                                                            <td> <input type="text" id="txtCpMotorCheck_Efficiency"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Imax-A</td>
+                                                            <td> <input type="text" id="txtCpMotorCheck_Imax-A"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>S.F</td>
+                                                            <td> <input type="text" id="txtCpMotorCheck_S.F"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Std</td>
+                                                            <td> <input type="text" id="txtCpMotorCheck_Std"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Bearing No</td>
+                                                            <td> <input type="text" id="txtCpMotorCheck_Bearing No"> </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div><!-- end card body  -->
+                                </div><!-- end card -->
+                            </div>
+
+                            <!-- CP_MOTOR_CHECK END FROM HERE -->
+
+                            <!--24 CP_TANK_CHECK START FROM HERE -->
+
+                            <div id="CP_TANK_CHECK" style="display: none;" class="col-lg-12">
+                                <div style="height: 100%;" class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <table id="datatable1" class="table table-bordered dt-responsive nowrap w-100">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Part No</td>
+                                                            <td> <input type="text" id="txtCpTankCheck_PartNo"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Rev No</td>
+                                                            <td> <input type="text" id="txtCpTankCheck_RevNo"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Serial No</td>
+                                                            <td> <input type="text" id="txtCpTankCheck_SerialNo"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp;</td>
+                                                            <td>  &nbsp; </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp;</td>
+                                                            <td>  &nbsp; </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <div class="row">
+                                                    <button ID="CP_TANK_CHECK_BTN"  type="button" class="btn btn-primary btn-lg">SUBMIT</button>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xl-6 text-dark">
+                                                <table id="datatable1" class="table table-bordered dt-responsive  nowrap w-100">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>&nbsp;</td>
+                                                            <td>
+                                                                &nbsp;
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp;</td>
+                                                            <td>
+                                                                &nbsp;
+
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp;</td>
+                                                            <td>
+                                                                &nbsp;
+
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp;</td>
+                                                            <td>
+                                                                &nbsp;
+
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp;</td>
+                                                            <td>
+                                                                &nbsp;
+
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div><!-- end card body  -->
+                                </div><!-- end card -->
+                            </div>
+
+                            <!-- CP_TANK_CHECK END FROM HERE -->
+
+                            <!--26 CP_VFD_CHECK START FROM HERE -->
+
+                            <div id="CP_VFD_CHECK" style="display: none;" class="col-lg-12">
+                                <div style="height: 100%;" class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <table id="datatable1" class="table table-bordered dt-responsive nowrap w-100">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Part No.</td>
+                                                            <td> <input type="text" id="txtCpVfdCheck_PartNo"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>REV No</td>
+                                                            <td> <input type="text" id="txtCpVfdCheck_RevNo"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Serial No</td>
+                                                            <td> <input type="text" id="txtCpVfdCheck_SerialNo"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp;</td>
+                                                            <td> &nbsp; </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp;</td>
+                                                            <td> &nbsp; </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <div class="row">
+                                                    <button id="CP_VFD_CHECK_BTN"  type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#mybox">SUBMIT</button>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xl-6 text-dark">
+                                                <table id="datatable1" class="table table-bordered dt-responsive  nowrap w-100">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>&nbsp;</td>
+                                                            <td>
+                                                                &nbsp;
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp;</td>
+                                                            <td>
+                                                                &nbsp;
+
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp;</td>
+                                                            <td>
+                                                                &nbsp;
+
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp;</td>
+                                                            <td>
+                                                                &nbsp;
+
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp;</td>
+                                                            <td>
+                                                                &nbsp;
+
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div><!-- end card body  -->
+                                </div><!-- end card -->
+                            </div>
+
+                            <!-- CP_VFD_CHECK END FROM HERE -->
+
+                            <!--27 SUBMIT SCREEN START FROM HERE -->
+
+                            <div id="SUBMIT_SCREEN" style="display: hide;" class="col-lg-12">
+                                <div style="height: 100%;" class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-xl-12">
+                                                <div class="row justify-content-center">
+                                                    <button style="width: 50%;" id="CP_VFD_CHECK_BTN"  type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#mybox">SUBMIT</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- end card body  -->
+                                </div><!-- end card -->
+                            </div>
+
+                            <!-- CP_VFD_CHECK END FROM HERE -->
+
+                        </div>
+
+                    </div><!-- end col -->
+
+                    <div style="height: 400px" class="col-lg-4">
+                        <div  class="row  mb-0">
+                            <div  class="col-lg-6">
+                                <div style="height: 100%;" class="row text-center mb-0">
+                                    <div   class="card col-lg-12 justify-content-center">
+                                        <div  class=" mymodel2 ">
+                                            <div  class="card-body ">
+                                                <h5  class="text-dark mb-3">Waste Capture</h5>
+                                                <div class="d-flex flex-wrap gap-2 justify-content-evenly">
+                                                    <button style="width: 80px; height: 80px; font-size: 18px;" id='pBTN' type="button" class="btn btn-primary" data-toggle="modal" data-target="#pbox">P</button>
+                                                    <button style="width: 80px; height: 80px; font-size: 18px;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#qbox">Q</button>
+                                                </div>
+                                            </div><!-- end card body  -->
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div style="height: 100%;" class="row ">
+                                    <div class="col-lg-12">
+                                        <div class="card">
+                                            <div class="card-body text-center">
+                                                <div class="d-flex flex-wrap gap-2 justify-content-center">
+                                                    <button style="width: 140px; height:50px;" class="my-1 font-size-15 btn btn-primary btn-lg"
+                                                        type="button" data-bs-toggle="offcanvas"
+                                                        data-bs-target="#offcanvasTop"
+                                                        aria-controls="offcanvasTop">Process Skip</button>
+                                                </div>
+                                                <div class="d-flex flex-wrap gap-2 justify-content-center">
+                                                    <button style="width: 140px; height:50px;" class="my-1 font-size-15 btn btn-primary btn"
+                                                        type="button" data-bs-toggle="offcanvas"
+                                                        data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Unit Skip</button>
+                                                </div>
+                                            </div><!-- end card body  -->
+                                        </div><!-- end card -->
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div style="height: 50%;" class="card">
+                                    <div style="height: 100%; padding: 5px;" class="card-image">
+                                        <img style="height: 100%;" class="card-img-top img-fluid" src="{% static 'images/users/1.png' %}" alt="Card image cap">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+            </div><!-- end row -->
+            
+            <!-- alpha page end -->
+
+
+        </div>
+        <!--End  container-fluid -->
+    </div>
+    <!-- End Page-content -->
+
+    {% comment %} {% include 'general/footer.html' %} {% endcomment %}
+</div>
+<!-- end main content-->
+</div>
+<!-- END layout-wrapper -->
+
+<div id="pbox" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="card mb-0">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <!-- Header -->
+
+                        <div class="card bg-dark text-light">
+                            <div class="card-body ">
+                               <div class="row">
+                                    <div class="col-md-5">
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <div class="row">
+                                                    <div class="col-xl-12 font-size-18 text-white-50 mb-1">
+                                                        Emp. Name
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xl-12 font-size-18 text-white-50 mb-1">
+                                                        Emp. ID
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <div class="row">
+                                                    <div class="col-xl-12 font-size-18 mb-1 text-white">
+                                                        Dinesh S
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xl-12 font-size-18 mb-1 text-white">3400
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <br>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <div class="row">
+                                                    <div class="col-xl-12 font-size-18 text-white-50 mb-1">
+                                                        FAB</div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xl-12 font-size-18 text-white-50 mb-1">
+                                                        TPL</div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <div class="row">
+                                                    <div class="col-xl-12 font-size-18 mb-1 text-white">
+                                                        BSISO38928
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xl-12 font-size-18 mb-1 text-white">
+                                                        S123456
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                               </div>
+                            </div>
+                        </div>
+
+                        <!-- Timer -->
+
+                        <div class="card bg-dark">
+                            <div class="card-body">
+                                <div class="row justify-content-between ">
+                                    <div style="margin-top: 10px;" class="col-md-4 ">
+                                        <h4 class="text-white-50 mb-0 bg-dark px-2">
+                                            Cycle Time : <span id="cycle-time"
+                                                class="text-light mb-0 mt-2">00:05</span>
+                                        </h4>
+                                    </div>
+
+                                    <div class="col-md-4 ">
+                                        <h4 class="text-white-50 mb-0 mt-2 ">
+                                            Actual Time : <span id="actualtime"
+                                                class="text-light mb-0 mt-2">00:00</span></h4>
+                                    </div>
+
+                                    <div class="col-md-4 ">
+                                        <h4 class="text-white-50 mb-0 mt-2 ">
+                                            Difference : <span id="time-diff"
+                                                class="text-light mb-0 mt-2">00:00</span>
+                                        </h4>
+                                    </div>
+                                </div><!-- end card -->
+                            </div>
+                        </div>
+
+                        <!-- Dropdowns -->
+
+                        <div class="card bg-dark">
+                            <div class="card-body">
+                                <div class="row justify-content-between ">
+                                    <div class="col-md-6 ">
+                                        <div class="row align-items-center">
+                                            <label style="font-size: 18px; " for="bypass"
+                                                class="col-sm-3 col-form-label text-light">Level 1</label>
+                                            <div class="col-sm-8">
+                                                <select style="height: 50%;" class="form-select" id="bypass"
+                                                    name="bypass">
+                                                    <option></option>
+                                                    <option>Option 1</option>
+                                                    <option>Option 2</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="row align-items-center">
+                                            <label style="font-size: 18px;" for="bypass"
+                                                class="col-md-3 col-form-label text-light">Level 2</label>
+                                            <div class="col-sm-8">
+                                                <select style="height: 50%;" class="form-select" id="bypass"
+                                                    name="bypass">
+                                                    <option></option>
+                                                    <option>Option 1</option>
+                                                    <option>Option 2</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div><!-- end card -->
+                            </div>
+                        </div>
+
+                        <!-- Submit button -->
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row justify-content-between ">
+                                    <div class="col-md-12 text-center">
+                                        <button style="width: 200px;" type="button" class="btn btn-primary close"
+                                            id="ploss_submit_btn">Submit</button>
+                                    </div>
+                                </div><!-- end card -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div id="qbox" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div  class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div  class="card mb-0">
+            <div  class="card-body">
+                <div class="row">
+                    <div  class="col-md-12">
+                        <!-- Header Part -->
+                        <div class="card bg-dark">
+                            <div class="card-body">
+                                <h5 class="text-light">Please Select the Level 1 and Level 2 dropdowns and wait until the issue is resolved.</h5> 
+                            </div>
+                        </div>
+
+                        <!-- Main Part -->
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <!-- Timer & Dropdowns -->
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="card bg-dark">
+                                            <div class="card-body ">
+                                                <div class="row">
+                                                    <!-- Dropdown One -->
+                                                    <div class="col-md-12"> 
+                                                        <div class="row align-content-center">
+                                                            <label style="font-size: 18px; " for="bypass"
+                                                                class="col-sm-3 col-form-label text-light">Level 1</label>
+                                                            <div class="col-sm-8 d-flex align-items-center">
+                                                                <select style="height: 60%;" class="form-select" id="bypass"
+                                                                    name="bypass">
+                                                                    <option></option>
+                                                                    <option>Option 1</option>
+                                                                    <option>Option 2</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Dropdown Two -->
+                                                    <div class="col-md-12">
+                                                        <div class="row align-content-center">
+                                                            <label style="font-size: 18px; " for="bypass"
+                                                                class="col-sm-3 col-form-label text-light">Level 2</label>
+                                                            <div class="col-sm-8 d-flex align-items-center">
+                                                                <select style="height: 60%;" class="form-select" id="bypass2"
+                                                                    name="bypass">
+                                                                    <option></option>
+                                                                    <option>Option 1</option>
+                                                                    <option>Option 2</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="card bg-dark">
+                                            <div class="card-body">
+                                                <div class="row ">
+                                                    <!-- Label Name -->
+                                                    <div class="col-md-12 text-center "> 
+                                                        <h3 class="text-light">DMS Timer</h3>
+                                                    </div>
+                                                    <div class="col-md-12"> 
+                                                        &nbsp;
+                                                    </div>
+                                                    <div class="col-md-12 text-center "> 
+                                                        <h3 id="dmstimer" class="text-light">00:05</h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Submit Butoon -->
+                                <div class="row">
+                                    <div class="col-md-12 text-center ">
+                                        <button style="width: 200px;" type="button" class="btn btn-primary"
+                                            id="qloss_submit_btn">Submit</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+<div id="mybox" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div  class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-content">
+            <div class="modal-header d-flex justify-content-between m-0">
+                <h4 class="modal-title">All process Done</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+    
+            <div class="modal-footer">
+              <button type="button" id="popup_ok" class="btn btn-default" data-dismiss="modal">Okay</button>
+              <button  id="popup_close" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            </div>
+          </div>
+      </div>
+    </div>
+</div>
+
+<div id="vaildationbox" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div  class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-content">
+            <div class="modal-header d-flex justify-content-between m-0">
+                <h4 class="modal-title">Error</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <div class="modal-body">
+                <p id="errormessage"></p>
+            </div>
+          </div>
+      </div>
+    </div>
+</div>
+
+
+
+
+
+
+{% include 'general/right_side_bar.html' %}
+{% include 'general/vendor_script.html' %}
+
+
+<!-- Required datatable js -->
+<script src="{%static 'libs/datatables.net/js/jquery.dataTables.min.js' %}"></script>
+<script src="{%static 'libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js' %}"></script>
+
+<!-- Buttons examples -->
+<script src="{%static 'libs/datatables.net-buttons/js/dataTables.buttons.min.js' %}"></script>
+<script src="{%static 'libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js' %}"></script>
+<script src="{%static 'libs/jszip/jszip.min.js' %}"></script>
+<script src="{%static 'libs/pdfmake/build/pdfmake.min.js' %}"></script>
+<script src="{%static 'libs/pdfmake/build/vfs_fonts.js' %}"></script>
+<script src="{%static 'libs/datatables.net-buttons/js/buttons.html5.min.js' %}"></script>
+<script src="{%static 'libs/datatables.net-buttons/js/buttons.print.min.js' %}"></script>
+<script src="{%static 'libs/datatables.net-buttons/js/buttons.colVis.min.js' %}"></script>
+
+<!-- Responsive examples -->
+<script src="{%static 'libs/datatables.net-responsive/js/dataTables.responsive.min.js' %}"></script>
+<script src="{%static 'libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js' %}"></script>
+
+<!-- Datatable init js -->
+<script src="{%static 'js/pages/datatables.init.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+<script src"{% static 'js/pages/modal.init.js' %}"></script>
+
+<script src="{% static 'js/app.js' %}"></script>
+
+    <!-- Child Screen Change -->
+    <!-- <script>
+        // var PROCESS_TYPE = "CP_AIREND"; //DEFAULT PROCESS TYPE. Coming from Django during Page Load.
+        // var PROCESS_TYPE = "CP_BELT_DETAILS"; 
+        // var PROCESS_TYPE = "CP_CONTROL_PANEL";                                                  
+        // var PROCESS_TYPE = "CP_COOLER"; 
+        // var PROCESS_TYPE = "CP_DRIVE_PULLY"; 
+        // var PROCESS_TYPE = "CP_DRIVEN_PULLY"; 
+        // var PROCESS_TYPE = "CP_DRYER"; 
+        // var PROCESS_TYPE = "CP_FAN_MOTOR"; 
+    
+        var BarCode = "PRT001!REV001!SR123456"; // Barcode that gest scanned from the scanner. 
+        const splitChar = "!"; //The Split Character for the BarCode String
+        var BarCodeArray = []; //Empty Array
+    
+    
+        //Show Or Hide CP_AIREND Screen
+        function showCP_AIREND(blnShowDiv) {
+            if(blnShowDiv) {
+                $("#CP_AIREND").show();
+                $("#processtype").text("CP_CONTROL_PANEL")
+    
+            } else {
+                $("#CP_AIREND").hide();
+            }
+    
+            $("#processname").html("CP_AIREND");
+            $("#processtype").html("CP_AIREND");
+    
+        }
+    
+        //Show Or Hide CP_BELT_DETAILS Screen
+        function showCP_BELT_DETAILS(blnShowDiv) {
+            if(blnShowDiv) {
+                $("#CP_BELT_DETALS").show();
+            } else {
+                $("#CP_BELT_DETALS").hide();
+            }
+    
+            $("#processname").html("CP_BELT_DETAILS");
+            $("#processtype").html("CP_BELT_DETAILS");
+    
+    
+        }
+    
+        //Show Or Hide COOLER_TEST Screen
+        function showCP_CONTROL_PANEL(blnShowDiv) {
+            if(blnShowDiv) {
+                $("#divCP_CONTROL_PANEL").show();
+            } else {
+                $("#divCP_CONTROL_PANEL").hide();
+            }
+    
+            $("#processname").html("CP_CONTROL_PANEL");
+            $("#processtype").html("CP_CONTROL_PANEL");
+        }
+    
+        //Show Or Hide COOLER_TEST Screen
+        function showCP_COOLER(blnShowDiv) {
+            if(blnShowDiv) {
+                $("#divCP_COOLER").show();
+            } else {
+                $("#divCP_COOLER").hide();
+            };
+    
+            $("#processname").html("CP_COOLER");
+            $("#processtype").html("CP_COOLER");
+            
+        }
+    
+    
+        //Show Or Hide CP_DRIVE_PULLY
+        function showCP_DRIVE_PULLY(blnShowDiv) {
+            if(blnShowDiv) {
+                $("#divCP_DRIVE_PULLY_TEST").show();
+            } else {
+                $("#divCP_DRIVE_PULLY_TEST").hide();
+            };
+    
+            $("#processname").html("CP_DRIVE_PULLY_TEST");
+            $("#processtype").html("CP_DRIVE_PULLY_TEST");
+        }
+        
+        //Show Or Hide CP_DRIVEN_PULLY
+        function showCP_DRIVEN_PULLY(blnShowDiv) {
+            if(blnShowDiv) {
+                $("#divCP_DRIVEN_PULLY_TEST").show();
+            } else {
+                $("#divCP_DRIVEN_PULLY_TEST").hide();
+            };
+    
+            $("#processname").html("CP_DRIVEN_PULLY_TEST");
+            $("#processtype").html("CP_DRIVEN_PULLY_TEST");
+        }
+    
+        //Show Or Hide CP_DRYER
+        function showCP_DRYER(blnShowDiv) {
+            if(blnShowDiv) {
+                $("#divCP_DRYER").show();
+            } else {
+                $("#divCP_DRYER").hide();
+            };
+    
+            $("#processname").html("CP_DRYER");
+            $("#processtype").html("CP_DRYER");
+        }
+        
+        //Show Or Hide FAN_MOTOR_TEST Screen
+        function showCP_FAN_MOTOR(blnShowDiv) {
+            if(blnShowDiv) {
+                $("#divCP_FAN_MOTOR").show();
+            } else {
+                $("#divCP_FAN_MOTOR").hide();
+            };
+    
+            $("#processname").html("CP_FAN_MOTOR");
+            $("#processtype").html("CP_FAN_MOTOR");
+        }
+    
+    
+        // Sets the cursor to right screen after the screen is shown or loaded.
+        function setOnLoadCursor() {
+            switch(PROCESS_TYPE) {
+                case "CP_AIREND":
+                    $("#part_no").focus();
+                    $("#txtCpAirend_PartNo").val(BarCode).trigger("change");
+                    break;
+                case "CP_BELT_DETAILS":
+                    $("#txtCpBeltDetails_PartNo").focus();
+                    $("#txtCpBeltDetails_PartNo").val(BarCode).trigger("change");
+                    // $("#txtCpBeltDetails_RevNo").val(BarCode).trigger("change");
+                    break;
+                case "CP_CONTROL_PANEL":
+                    $("#txtCpControlDetails_PartNo").focus();
+                    $("#txtCpControlDetails_PartNo").val(BarCode).trigger("change");
+                    break;
+                case "CP_COOLER":
+                    $("#txtCpCoolerDetails_PartNo").focus();
+                    $("#txtCpCoolerDetails_PartNo").val(BarCode).trigger("change");
+                    break;
+                case "CP_DRIVE_PULLY":
+                    $("#txtCpDrivePullyTestDetails_PartNo").focus();
+                    $("#txtCpDrivePullyTestDetails_PartNo").val(BarCode).trigger("change");
+                    break;
+                case "CP_DRIVEN_PULLY":
+                    $("#txtCpDrivenPullyTestDetails_PartNo").focus();
+                    $("#txtCpDrivenPullyTestDetails_PartNo").val(BarCode).trigger("change");
+                    break;
+                case "CP_DRYER":
+                    $("#txtCP_DRYER_PartNo").focus();
+                    $("#txtCP_DRYER_PartNo").val(BarCode).trigger("change");
+                    break;
+                case "CP_FAN_MOTOR":
+                    $("#txtCP_FAN_MOTOR_PartNo").focus();
+                    $("#txtCP_FAN_MOTOR_PartNo").val(BarCode).trigger("change");
+                    break;
+                default:
+                    $("#txtCpAirend_PartNo").focus();
+            }
+        }
+    
+        //Set Barcode Values back to textboxes
+        function setBarCodeValues() {
+            switch(PROCESS_TYPE) {
+                case "CP_AIREND":
+                    $("#txtCpAirend_PartNo").val(BarCodeArray[0]);
+                    $("#txtCpAirend_RevNo").val(BarCodeArray[1]);
+                    $("#txtCpAirend_SrNo").val(BarCodeArray[2]);
+                    break;
+                case "CP_BELT_DETAILS":
+                    $("#txtCpBeltDetails_PartNo").val(BarCodeArray[0]);
+                    $("#txtCpBeltDetails_RevNo").val(BarCodeArray[1]);
+                    $("#txtCpBeltDetails_BatchNo").val(BarCodeArray[2]);
+                    break;
+                case "CP_CONTROL_PANEL":
+                    $("#txtCpControlDetails_PartNo").val(BarCodeArray[0]);
+                    $("#txtCpControlDetails_RevNo").val(BarCodeArray[1]);
+                    $("#txtCpControlDetails_SrNo").val(BarCodeArray[2]);
+                    break;
+                case "CP_COOLER":
+                    $("#txtCpCoolerDetails_PartNo").val(BarCodeArray[0]);
+                    $("#txtCpCoolerDetails_RevNo").val(BarCodeArray[1]);
+                    $("#txtCpCoolerDetails_SrNo").val(BarCodeArray[2]);
+                    break;
+                case "CP_DRIVE_PULLY":
+                    $("#txtCpDrivePullyTestDetails_PartNo").val(BarCodeArray[0]);
+                    $("#txtCpDrivePullyTestDetails_RevNo").val(BarCodeArray[1]);
+                    $("#txtCpDrivePullyTestDetails_SrNo").val(BarCodeArray[2]);
+                    break;
+                case "CP_DRIVEN_PULLY":
+                    $("#txtCpDrivenPullyTestDetails_PartNo").val(BarCodeArray[0]);
+                    $("#txtCpDrivenPullyTestDetails_RevNo").val(BarCodeArray[1]);
+                    $("#txtCpDrivenPullyTestDetails_SrNo").val(BarCodeArray[2]);
+                    break;
+                case "CP_DRYER":
+                    $("#txtCP_DRYER_PartNo").val(BarCodeArray[0]);
+                    $("#txtCP_DRYER_RevNo").val(BarCodeArray[1]);
+                    $("#txtCP_DRYER_SrNo").val(BarCodeArray[2]);
+                    break;
+                case "CP_FAN_MOTOR":
+                    $("#txtCP_FAN_MOTOR_PartNo").val(BarCodeArray[0]);
+                    $("#txtCP_FAN_MOTOR_RevNo").val(BarCodeArray[1]);
+                    $("#txtCP_FAN_MOTOR_SrNo1").val(BarCodeArray[2]);
+                    break;
+                default:
+                    break;
+            }
+        }
+    
+        //Split the String
+        function splitBarCode(strBarCode) {
+            //Let's split the String into an Array.
+            BarCodeArray = strBarCode.split(splitChar);
+            setBarCodeValues();
+        }
+    
+    
+        $(document).ready(function() {
+            //Hide All the Divs. 
+            showCP_AIREND(false); 
+            showCP_BELT_DETAILS(false);
+    
+            //Change Event of the TextBoxes #txtCpAirend_PartNo
+            $("#txtCpAirend_PartNo").change(function() {
+                var barcodeString = $("#txtCpAirend_PartNo").val();
+                //Let's split the string. 
+                if(barcodeString.indexOf("!") > -1) {
+                    splitBarCode(barcodeString);
+                }
+            });
+    
+            //Change Event of the TextBoxes ("#txtCpBeltDetails_PartNo"
+            $("#txtCpBeltDetails_PartNo").change(function() {
+                var barcodeString = $("#txtCpBeltDetails_PartNo").val();
+                //Let's split the string. 
+                if(barcodeString.indexOf("!") > -1) {
+                    splitBarCode(barcodeString);
+                }
+            });
+    
+            //Change Event of the TextBoxes "#txtCpControlDetails_PartNo"
+            $("#txtCpControlDetails_PartNo").change(function() {
+                var barcodeString = $("#txtCpControlDetails_PartNo").val();
+                //Let's split the string. 
+                if(barcodeString.indexOf("!") > -1) {
+                    splitBarCode(barcodeString);
+                }
+            });
+    
+            //Change Event of the TextBoxes "#txtCpCoolerDetails_PartNo"
+            $("#txtCpCoolerDetails_PartNo").change(function() {
+                var barcodeString = $("#txtCpCoolerDetails_PartNo").val();
+                //Let's split the string. 
+                if(barcodeString.indexOf("!") > -1) {
+                    splitBarCode(barcodeString);
+                }
+            });
+    
+            //Change Event of the TextBoxes #txtCpDrivePullyTestDetails_PartNo
+            $("#txtCpDrivePullyTestDetails_PartNo").change(function() {
+                var barcodeString = $("#txtCpDrivePullyTestDetails_PartNo").val();
+                //Let's split the string. 
+                if(barcodeString.indexOf("!") > -1) {
+                    splitBarCode(barcodeString);
+                }
+            });
+            //Change Event of the TextBoxes #txtCpDrivePullyTestDetails_PartNo
+            $("#txtCpDrivenPullyTestDetails_PartNo").change(function() {
+                var barcodeString = $("#txtCpDrivenPullyTestDetails_PartNo").val();
+                //Let's split the string. 
+                if(barcodeString.indexOf("!") > -1) {
+                    splitBarCode(barcodeString);
+                }
+            });
+            //Change Event of the TextBoxes #txtCpDrivePullyTestDetails_PartNo
+            $("#txtCP_DRYER_PartNo").change(function() {
+                var barcodeString = $("#txtCP_DRYER_PartNo").val();
+                //Let's split the string. 
+                if(barcodeString.indexOf("!") > -1) {
+                    splitBarCode(barcodeString);
+                }
+            });
+            //Change Event of the TextBoxes #txtCpDrivePullyTestDetails_PartNo
+            $("#txtCP_FAN_MOTOR_PartNo").change(function() {
+                var barcodeString = $("#txtCP_FAN_MOTOR_PartNo").val();
+                //Let's split the string. 
+                if(barcodeString.indexOf("!") > -1) {
+                    splitBarCode(barcodeString);
+                }
+            });
+    
+            //Show the Div based on the value received from Django Backend
+            switch(PROCESS_TYPE) {
+                case "CP_AIREND": 
+                    showCP_AIREND(true);
+                    break;
+    
+                case "CP_BELT_DETAILS": 
+                    showCP_BELT_DETAILS(true);
+                    break;
+                
+                case "CP_CONTROL_PANEL": 
+                    showCP_CONTROL_PANEL(true);
+                    break;
+    
+                case "CP_COOLER": 
+                    showCP_COOLER(true);
+                    break;
+    
+                case "CP_DRIVE_PULLY": 
+                    showCP_DRIVE_PULLY(true);
+                    break;
+    
+                case "CP_DRIVEN_PULLY": 
+                    showCP_DRIVEN_PULLY(true);
+                    break;
+    
+                case "CP_DRYER": 
+                    showCP_DRYER(true);
+                    break;
+    
+                case "CP_FAN_MOTOR": 
+                    showCP_FAN_MOTOR(true);
+                    break;
+                
+                default:
+                    showCP_AIREND(true);
+            }
+    
+            setOnLoadCursor(); //Set the cursor to right form after load
+        });
+    </script> -->
+
+
+<!-- <script>
+        const splitChar = "!"; //The Split Character for the BarCode String
+        var BarCodeArray = []; //Empty Array
+
+
+        //Set Barcode Values back to textboxes
+        function setBarCodeValues() {
+            switch(PROCESS_TYPE) {
+                case "CP_AIREND":
+                    $("#txtCpAirend_PartNo").val(BarCodeArray[0]);
+                    $("#txtCpAirend_RevNo").val(BarCodeArray[1]);
+                    $("#txtCpAirend_SrNo").val(BarCodeArray[2]);
+                    break;
+                case "CP_BELT_DETAILS":
+                    $("#txtCpBeltDetails_PartNo").val(BarCodeArray[0]);
+                    $("#txtCpBeltDetails_RevNo").val(BarCodeArray[1]);
+                    $("#txtCpBeltDetails_BatchNo").val(BarCodeArray[2]);
+                    break;
+                case "CP_CONTROL_PANEL":
+                    $("#txtCpControlDetails_PartNo").val(BarCodeArray[0]);
+                    $("#txtCpControlDetails_RevNo").val(BarCodeArray[1]);
+                    $("#txtCpControlDetails_SrNo").val(BarCodeArray[2]);
+                    break;
+                case "CP_COOLER":
+                    $("#txtCpCoolerDetails_PartNo").val(BarCodeArray[0]);
+                    $("#txtCpCoolerDetails_RevNo").val(BarCodeArray[1]);
+                    $("#txtCpCoolerDetails_SrNo").val(BarCodeArray[2]);
+                    break;
+                case "CP_DRIVE_PULLY":
+                    $("#txtCpDrivePullyTestDetails_PartNo").val(BarCodeArray[0]);
+                    $("#txtCpDrivePullyTestDetails_RevNo").val(BarCodeArray[1]);
+                    $("#txtCpDrivePullyTestDetails_SrNo").val(BarCodeArray[2]);
+                    break;
+                case "CP_DRIVEN_PULLY":
+                    $("#txtCpDrivenPullyTestDetails_PartNo").val(BarCodeArray[0]);
+                    $("#txtCpDrivenPullyTestDetails_RevNo").val(BarCodeArray[1]);
+                    $("#txtCpDrivenPullyTestDetails_SrNo").val(BarCodeArray[2]);
+                    break;
+                case "CP_DRYER":
+                    $("#txtCP_DRYER_PartNo").val(BarCodeArray[0]);
+                    $("#txtCP_DRYER_RevNo").val(BarCodeArray[1]);
+                    $("#txtCP_DRYER_SrNo").val(BarCodeArray[2]);
+                    break;
+                case "CP_FAN_MOTOR":
+                    $("#txtCP_FAN_MOTOR_PartNo").val(BarCodeArray[0]);
+                    $("#txtCP_FAN_MOTOR_RevNo").val(BarCodeArray[1]);
+                    $("#txtCP_FAN_MOTOR_SrNo1").val(BarCodeArray[2]);
+                    break;
+                default:
+                    break;
+            }
+        }
+    
+        //Split the String
+        function splitBarCode(strBarCode) {
+            //Let's split the String into an Array.
+            BarCodeArray = strBarCode.split(splitChar);
+            setBarCodeValues();
+        }
+
+</script> -->
+
+<!-- Screen change API -->
+<script>
+    function setOnLoadCursor(response) {
+        switch(response) {
+            case "CP_AIREND":
+                $("#txtCpAirend_PartNo")[0].setSelectionRange($("#txtCpAirend_PartNo").val().length, $("#txtCpAirend_PartNo").val().length);
+                $("#txtCpAirend_PartNo").focus();
+                break;
+            case "CP_BELT_DETAILS":
+                $("#txtCpBeltDetails_PartNo")[0].setSelectionRange($("#txtCpBeltDetails_PartNo").val().length, $("#txtCpBeltDetails_PartNo").val().length);
+                $("#txtCpBeltDetails_PartNo").focus();
+                break;
+            case "CP_CONTROL_PANEL":
+                $("#txtCpControlPanel_PartNo")[0].setSelectionRange($("#txtCpControlPanel_PartNo").val().length, $("#txtCpControlPanel_PartNo").val().length);
+                $("#txtCpControlPanel_PartNo").focus();
+                break;
+            case "CP_COOLER":
+                $("#txtCpCooler_PartNo")[0].setSelectionRange($("#txtCpCooler_PartNo").val().length, $("#txtCpCooler_PartNo").val().length);
+                $("#txtCpCooler_PartNo").focus();
+                break;
+            case "CP_DRIVE_PULLY":
+                $("#txtCpDrivePully_PartNo")[0].setSelectionRange($("#txtCpDrivePully_PartNo").val().length, $("#txtCpDrivePully_PartNo").val().length);
+                $("#txtCpDrivePully_PartNo").focus();
+                break;
+            case "CP_DRIVEN_PULLY":
+                $("#txtCpDrivenPully_PartNo")[0].setSelectionRange($("#txtCpDrivenPully_PartNo").val().length, $("#txtCpDrivenPully_PartNo").val().length);
+                $("#txtCpDrivenPully_PartNo").focus();
+                break;
+            case "CP_DRYER":
+                $("#txtCpDryer_PartNo")[0].setSelectionRange($("#txtCpDryer_PartNo").val().length, $("#txtCpDryer_PartNo").val().length);
+                $("#txtCpDryer_PartNo").focus();
+                break;
+            case "CP_FAN_MOTOR":
+                $("#txtCpFanMotor_PartNo")[0].setSelectionRange($("#txtCpFanMotor_PartNo").val().length, $("#txtCpFanMotor_PartNo").val().length);
+                $("#txtCpFanMotor_PartNo").focus();
+                break;
+            case "CP_MOTOR":
+                $("#txtCpMotor_PartNo")[0].setSelectionRange($("#txtCpMotor_PartNo").val().length, $("#txtCpMotor_PartNo").val().length);
+                $("#txtCpMotor_PartNo").focus();
+                break;
+            case "CP_NEURON":
+                $("#txtCpNeuron_PartNo")[0].setSelectionRange($("#txtCpNeuron_PartNo").val().length, $("#txtCpNeuron_PartNo").val().length);
+                $("#txtCpNeuron_PartNo").focus();
+                break;
+            case "CP_TANK":
+                $("#txtCpTank_PartNo")[0].setSelectionRange($("#txtCpTank_PartNo").val().length, $("#txtCpTank_PartNo").val().length);
+                $("#txtCpTank_PartNo").focus();
+                break;
+            case "CP_VFD":
+                $("#txtCpVfd_PartNo")[0].setSelectionRange($("#txtCpVfd_PartNo").val().length, $("#txtCpVfd_PartNo").val().length);
+                $("#txtCpVfd_PartNo").focus();
+                break;
+
+            case "CP_VFD":
+                $("#txtCpVfd_PartNo")[0].setSelectionRange($("#txtCpVfd_PartNo").val().length, $("#txtCpVfd_PartNo").val().length);
+                $("#txtCpVfd_PartNo").focus();
+                break;
+            default:
+                $("#txtCpAirend_PartNo")[0].setSelectionRange($("#txtCpAirend_PartNo").val().length, $("#txtCpAirend_PartNo").val().length);
+                $("#txtCpAirend_PartNo").focus();
+        }
+    }
+
+$(document).ready(function(){
+    var differntProcess = new Object();
+    differntProcess.FAB_NO = "AUES034896";
+    differntProcess.TPL_No = "tpl11";
+    differntProcess.Emp_Name = "Vivek";
+    differntProcess.Emp_ID = 1;
+    differntProcess.method = "process_submit";
+    differntProcess.station_id = "SS1";
+
+    $("#CP_AIREND_BTN").click(function(){
+       
+        differntProcess.Process_Seq_No = 1.0;
+        differntProcess.Pro_Type_Code = "CP_AIREND";
+        differntProcess.Actual_Time = "00:05";
+
+        var dataOfTable = new Object();
+        dataOfTable.Partno = document.getElementById("txtCpAirend_PartNo").value;
+        dataOfTable.Revno = document.getElementById("txtCpAirend_RevNo").value;
+        dataOfTable.Serialno = document.getElementById("txtCpAirend_SerialNo").value;
+        
+        a = "{'Partno':'X990614','Revno':'R00', 'Serialno':'123'}";
+        differntProcess.process_data = JSON.stringify(dataOfTable);
+        
+        console.log(differntProcess);
+
+        $.ajax({
+            url: 'http://20.212.149.30:8000/substationapi',
+            type: 'POST',
+            dataType: 'json',
+            data: differntProcess,
+
+            success: function (data, textStatus, xhr) {
+                console.log(data);
+                console.log("Inside CP_AIREND_BTN");
+                console.log(data.process_validation)
+
+                process = data.process_validation;
+
+                if(process == "Fail"){
+                    $("#vaildationbox").modal('show');
+                    document.getElementById("errormessage").innerText = data.Message;
+
+                } else if (process == "process_complete") {
+                    $("#CP_AIREND").hide();
+                    $("#"+data.process_seq.Pro_Type_Code).show();
+                    $("#processtype").html("CP_BELT_DETAILS");
+                    $("#processname").html("CP_BELT_DETAILS");
+                    $("#txtCpBeltDetals_PartNo").focus()
+                    document.getElementById("cycletimemain").value = data.process_seq.Cycle_Time;
+                }
+
+                setOnLoadCursor(data.process_seq.Pro_Type_Code);
+
+
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                console.log('Error in Operation');
+            }
+        });
+
+   });
+
+    $("#CP_BELT_DETAILS_BTN").click(function(){
+        
+        differntProcess.Process_Seq_No = 2.0;
+        differntProcess.Pro_Type_Code = "CP_BELT_DETAILS";
+        differntProcess.Actual_Time = "00:05";
+
+        var dataOfTable = new Object();
+        dataOfTable.Partno = document.getElementById("txtCpBeltDetails_PartNo").value;
+        dataOfTable.Revno = document.getElementById("txtCpBeltDetails_RevNo").value;
+        dataOfTable.beltdetails_bone = document.getElementById("txtCpBeltDetails_Bactch1").value;
+        dataOfTable.beltdetails_btwo = document.getElementById("txtCpBeltDetails_Bactch2").value;
+        dataOfTable.beltdetails_bthree = document.getElementById("txtCpBeltDetails_Bactch3").value;
+        dataOfTable.beltdetails_make = document.getElementById("txtCpBeltDetails_BeltMake").value;
+        
+        a= '{"Partno":"018363392","Revno":"R03","beltdetails_bone":"1","beltdetails_btwo":"2","beltdetails_bthree":"3","beltdetails_make":"A"}';
+        differntProcess.process_data = JSON.stringify(dataOfTable);
+
+        console.log(differntProcess);
+
+        $.ajax({
+            url: 'http://20.212.149.30:8000/substationapi',
+            type: 'POST',
+            dataType: 'json',
+            data: differntProcess,
+
+            success: function (data, textStatus, xhr) {
+                console.log(data);
+
+                process = data.process_validation;
+
+                if(process == "Fail"){
+                    $("#vaildationbox").modal('show');
+                    document.getElementById("errormessage").innerText = data.Message;
+
+                } else if (process == "process_complete") {
+                    $("#CP_BELT_DETAILS").hide();
+                    $("#CP_CONTROL_PANEL").show();
+                    $("#processtype").html("CP_CONTROL_PANEL");
+                    $("#processname").html("CP_CONTROL_PANEL");
+                    document.getElementById("cycletimemain").value = data.process_seq.Cycle_Time;
+                    document.getElementById("actualtimemain").value = data.process_seq.Actual_Time;
+                    // document.getElementById("txtCpControlPanel_PartNo").value = "Hello";
+                }
+
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                console.log('Error in Operation');
+            }
+        });
+
+
+
+
+   });
+
+    $("#CP_CONTROL_PANEL_BTN").click(function(){
+
+        differntProcess.Process_Seq_No = 3.0;
+        differntProcess.Pro_Type_Code = "CP_CONTROL_PANEL";
+        differntProcess.Actual_Time = document.getElementById("actualtimemain").innerText;
+
+        var dataOfTable = new Object();
+        dataOfTable.Partno = document.getElementById("txtCpControlPanel_PartNo").value;
+        dataOfTable.Revno = document.getElementById("txtCpControlPanel_RevNo").value;
+        dataOfTable.Serialno = document.getElementById("txtCpControlPanel_SerialNo").value;
+        dataOfTable.Modalno = document.getElementById("txtCpControlPanel_Model").value;
+        
+        
+        a= '{"Partno":"018363392","Revno":"R03","Serialno":"222","model":"15"}';
+        differntProcess.process_data = JSON.stringify(dataOfTable);
+
+        console.log(differntProcess);
+
+        $.ajax({
+            url: 'http://20.212.149.30:8000/substationapi',
+            type: 'POST',
+            dataType: 'json',
+            data: differntProcess,
+
+            success: function (data, textStatus, xhr) {
+                console.log(data);
+                console.log(data.process_seq.process_validation)
+
+                process = data.process_validation;
+
+                if(process == "Fail"){
+
+                    document.getElementById("errormessage").innerText = data.Message
+
+
+                } else if (process == "Success") {
+                    $("#CP_CONTROL_PANEL").hide();
+                    $("#"+data.process_seq.Pro_Type_Code).show();
+                    $("#processtype").html("CP_COOLER");
+                    $("#processname").html("CP_COOLER");
+                }
+
+
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                console.log('Error in Operation');
+            }
+        });
+
+   });
+
+    $("#CP_COOLER_BTN").click(function(){
+       
+
+        differntProcess.Process_Seq_No = 5.0;
+        differntProcess.Pro_Type_Code = "CP_COOLER";
+        differntProcess.Actual_Time = "00:05";
+
+        var dataOfTable = new Object();
+        dataOfTable.Partno = document.getElementById("txtCpCooler_PartNo").value;
+        dataOfTable.Revno = document.getElementById("txtCpCooler_RevNo").value;
+        dataOfTable.Serialno = document.getElementById("txtCpCooler_SerialNo").value;
+
+        
+        a= '{"Partno":"015315679","Revno":"R03","Serialno":"111"}';
+        differntProcess.process_data = a;
+        differntProcess.method = "process_submit";
+
+        console.log(differntProcess);
+
+        $.ajax({
+            url: 'http://20.212.149.30:8000/substationapi',
+            type: 'POST',
+            dataType: 'json',
+            data: differntProcess,
+
+            success: function (data, textStatus, xhr) {
+                console.log(data);
+                var sec = 0;
+
+                console.log(data.process_validation)
+
+                process = data.process_validation;
+
+                if(process == "Fail"){
+                    $("#vaildationbox").modal('show');
+                    document.getElementById("errormessage").innerText = data.Message
+
+
+                } else if (process == "Success") {
+
+                    $("#CP_COOLER").hide();
+                    $("#CP_DRIVE_PULLY").show();
+                    $("#processtype").html("CP_DRIVE_PULLY");
+                    $("#processname").html("CP_DRIVE_PULLY");
+                    document.getElementById("cycletimemain").value = data.process_seq.Cycle_Time;
+
+                }
+
+
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                console.log('Error in Operation');
+            }
+        });
+
+   });
+
+    $("#CP_DRIVE_PULLY_BTN").click(function(){
+        differntProcess.Process_Seq_No = 6.0;
+        differntProcess.Pro_Type_Code = "CP_DRIVE_PULLY";
+        differntProcess.Actual_Time = "00:05";
+
+        var dataOfTable = new Object();
+        dataOfTable.Partno = document.getElementById("txtCpDrivePully_PartNo").value;
+        dataOfTable.Revno = document.getElementById("txtCpDrivePully_RevNo").value;
+        dataOfTable.Serialno = document.getElementById("txtCpDrivePully_SerialNo").value;
+
+
+        
+        a= '{"Partno":"X990614","Revno":"R00", "Serialno":"123"}';
+        differntProcess.process_data = a;
+        differntProcess.method = "process_submit";
+
+        console.log(differntProcess);
+
+        $.ajax({
+            url: 'http://20.212.149.30:8000/substationapi',
+            type: 'POST',
+            dataType: 'json',
+            data: differntProcess,
+
+            success: function (data, textStatus, xhr) {
+                console.log(data);
+                var sec = 0;
+                document.getElementById("cycletimemain").value = data.process_seq.Cycle_Time;
+
+                console.log(data.process_seq.process_validation)
+
+                process = data.process_seq.process_validation;
+
+                if(process == "Fail"){
+
+                    document.getElementById("errormessage").innerText = data.process_seq.Message
+
+
+                } else if (process == "Success") {
+                    $("#CP_DRIVE_PULLY").hide();
+                    $("#CP_DRIVEN_PULLY").show();
+                    $("#processtype").html("CP_DRIVEN_PULLY");
+                    $("#processname").html("CP_DRIVEN_PULLY");
+                }
+
+
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                console.log('Error in Operation');
+            }
+        });
+   });
+
+    $("#CP_DRIVEN_PULLY_BTN").click(function(){
+        differntProcess.Process_Seq_No = 7.0;
+        differntProcess.Pro_Type_Code = "CP_DRIVEN_PULLY";
+        differntProcess.Actual_Time = "00:05";
+
+        var dataOfTable = new Object();
+
+        a= '{"Partno":"018363392","Revno":"R03","Serialno":"222","model":"15"}';
+        differntProcess.process_data = JSON.stringify(dataOfTable);
+
+        console.log(differntProcess);
+
+        $.ajax({
+            url: 'http://20.212.149.30:8000/substationapi',
+            type: 'POST',
+            dataType: 'json',
+            data: differntProcess,
+
+            success: function (data, textStatus, xhr) {
+                console.log(data);
+                console.log(data.process_seq.process_validation)
+
+                process = data.process_validation;
+
+                if(process == "Fail"){
+
+                    document.getElementById("errormessage").innerText = data.Message
+
+                } else if (process == "Success") {
+                    $("#CP_DRIVEN_PULLY").hide();
+                    $("#CP_DRYER").show();
+                    $("#processtype").html("CP_DRYER");
+                    $("#processname").html("CP_DRYER");
+                }
+
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                console.log('Error in Operation');
+            }
+        });
+    });
+
+    $("#CP_DRYER_BTN").click(function(){
+
+        differntProcess.Process_Seq_No = 8.0;
+        differntProcess.Pro_Type_Code = "CP_DRYER";
+        differntProcess.Actual_Time = "00:05";
+
+        var dataOfTable = new Object();
+        
+        a = "{'Partno':'X990614','Revno':'R00', 'Serialno':'123'}";
+        differntProcess.process_data = JSON.stringify(dataOfTable);
+
+        console.log(differntProcess);
+
+        $.ajax({
+            url: 'http://20.212.149.30:8000/substationapi',
+            type: 'POST',
+            dataType: 'json',
+            data: differntProcess,
+
+            success: function (data, textStatus, xhr) {
+                console.log(data);
+                console.log(data.process_seq.process_validation)
+
+                process = data.process_seq.process_validation;
+
+                if(process == "Fail"){
+
+                    document.getElementById("errormessage").innerText = data.process_seq.Message
+
+                } else if (process == "Success") {
+                    $("#CP_DRYER").hide();
+                    $("#CP_FAN_MOTOR").show();
+                    $("#processtype").html("CP_FAN_MOTOR");
+                    $("#processname").html("CP_FAN_MOTOR");
+                }
+
+
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                console.log('Error in Operation');
+            }
+        });
+   });
+
+    $("#CP_FAN_MOTOR_BTN").click(function(){
+        differntProcess.Process_Seq_No = 9.0;
+        differntProcess.Pro_Type_Code = "CP_FAN_MOTOR";
+        differntProcess.Actual_Time = "00:05";
+
+
+        var dataOfTable = new Object();
+        dataOfTable.Partno = document.getElementById("txtCpFanMotor_PartNo").value;
+        dataOfTable.Revno = document.getElementById("txtCpFanMotor_RevNo").value;
+        dataOfTable.Serialno = document.getElementById("txtCpFanMotor_SerialNo").value;
+        dataOfTable.KiloWattType = document.getElementById("txtCpFanMotor_KWType").value;
+        
+        a= '{"Partno":"B008107010002","Revno":"R04","Serialno":"222","fanmotor_kw":"15"}';
+        differntProcess.process_data = JSON.stringify(dataOfTable);
+
+        console.log(differntProcess);
+
+        $.ajax({
+            url: 'http://20.212.149.30:8000/substationapi',
+            type: 'POST',
+            dataType: 'json',
+            data: differntProcess,
+
+            success: function (data, textStatus, xhr) {
+                console.log(data);
+                console.log(data.process_seq.process_validation)
+
+                process = data.process_seq.process_validation;
+
+                if(process == "Fail"){
+
+                    document.getElementById("errormessage").innerText = data.process_seq.Message
+
+
+                } else if (process == "Success") {
+                    $("#CP_FAN_MOTOR").hide();
+                    $("#CP_MOTOR").show();
+                    $("#processtype").html("CP_MOTOR");
+                    $("#processname").html("CP_MOTOR");
+                }
+
+
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                console.log('Error in Operation');
+            }
+        });
+   });
+
+    $("#CP_MOTOR_BTN").click(function(){
+        differntProcess.Process_Seq_No = 10.0;
+        differntProcess.Pro_Type_Code = "CP_MOTOR";
+        differntProcess.Actual_Time = "00:05";
+
+        var dataOfTable = new Object();
+        dataOfTable.Partno = document.getElementById("txtCpMotor_PartNo").value;
+        dataOfTable.Revno = document.getElementById("txtCpMotor_RevNo").value;
+        dataOfTable.Serialno = document.getElementById("txtCpMotor_SerialNo").value;
+        // dataOfTable.KiloWattType = document.getElementById("txtCpMotor_KWType").value;
+        dataOfTable.Efficiency = document.getElementById("txtCpMotor_Efficiency").value;
+
+        
+        a= '{"Partno":"B005101770100","Revno":"R00","Serialno":"222","motor_efficiency":"15"}';
+        differntProcess.process_data = a;
+        differntProcess.method = "process_submit";
+
+        console.log(differntProcess);
+
+        $.ajax({
+            url: 'http://20.212.149.30:8000/substationapi',
+            type: 'POST',
+            dataType: 'json',
+            data: differntProcess,
+
+            success: function (data, textStatus, xhr) {
+                console.log(data);
+                document.getElementById("cycletimemain").value = data.process_seq.Cycle_Time;
+                console.log(data.process_seq.process_validation)
+
+                process = data.process_seq.process_validation;
+
+                if(process == "Fail"){
+
+                    document.getElementById("errormessage").innerText = data.process_seq.Message
+
+
+                } else if (process == "Success") {
+                    $("#CP_MOTOR").hide();
+                    $("#CP_NEURON").show();
+                    $("#processtype").html("CP_NEURON");
+                    $("#processname").html("CP_NEURON");
+                }
+
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                console.log('Error in Operation');
+            }
+        });
+
+    });
+
+    $("#CP_NEURON_BTN").click(function(){
+        differntProcess.Process_Seq_No = 11.0;
+        differntProcess.Pro_Type_Code = "CP_NEURON";
+        differntProcess.Actual_Time = "00:05";
+        differntProcess.method = "process_submit";
+
+
+        var dataOfTable = new Object();
+        dataOfTable.Partno = document.getElementById("txtCpNeuron_PartNo").value;
+        dataOfTable.Revno = document.getElementById("txtCpNeuron_RevNo").value;
+        dataOfTable.Serialno = document.getElementById("txtCpNeuron_SerialNo").value;
+
+        console.log(differntProcess);
+
+        $.ajax({
+            url: 'http://20.212.149.30:8000/substationapi',
+            type: 'POST',
+            dataType: 'json',
+            data: differntProcess,
+
+            success: function (data, textStatus, xhr) {
+                console.log(data);
+                document.getElementById("cycletimemain").value = data.process_seq.Cycle_Time;
+
+                process = data.process_seq.process_validation;
+
+                if(process == "Fail"){
+
+                    document.getElementById("errormessage").innerText = data.process_seq.Message
+
+
+                } else if (process == "Success") {
+                    $("#CP_NEURON").hide();
+                    $("#CP_TANK").show();
+                    $("#processtype").html("CP_TANK");
+                    $("#processname").html("CP_TANK");
+                }
+
+
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                console.log('Error in Operation');
+            }
+        });
+
+    });
+
+    $("#CP_TANK_BTN").click(function(){
+        differntProcess.Process_Seq_No = 12.0;
+        differntProcess.Pro_Type_Code = "CP_TANK";
+        differntProcess.Actual_Time = "00:05";
+        differntProcess.method = "process_submit";
+
+        var dataOfTable = new Object();
+        dataOfTable.Partno = document.getElementById("txtCpTank_PartNo").value;
+        dataOfTable.Revno = document.getElementById("txtCpTank_RevNo").value;
+        dataOfTable.Serialno = document.getElementById("txtCpTank_SerialNo").value;
+        
+        
+        a= '{"Partno":"015315666","Revno":"R04","Serialno":"111"}';
+        differntProcess.process_data = a;
+        differntProcess.method = "process_submit";
+
+        console.log(differntProcess);
+
+        $.ajax({
+            url: 'http://20.212.149.30:8000/substationapi',
+            type: 'POST',
+            dataType: 'json',
+            data: differntProcess,
+
+            success: function (data, textStatus, xhr) {
+                console.log(data);
+                var sec = 0;
+                document.getElementById("cycletimemain").value = data.process_seq.Cycle_Time;
+
+                console.log(data.process_seq.process_validation)
+
+                process = data.process_seq.process_validation;
+
+                if(process == "Fail"){
+
+                    document.getElementById("errormessage").innerText = data.process_seq.Message
+
+
+                } else if (process == "Success") {
+                    $("#CP_TANK").hide();
+                    $("#CP_VFD").show();
+                    $("#processtype").html("CP_VFD");
+                    $("#processname").html("CP_VFD");
+                }
+
+
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                console.log('Error in Operation');
+            }
+        });
+
+    });
+
+    $("#CP_VFD_BTN").click(function(){
+        // $("#myModal").modal('show');
+        // clearInterval(intervalId);
+
+        differntProcess.Process_Seq_No = 14.0;
+        differntProcess.Pro_Type_Code = "CP_VFD";
+        differntProcess.Actual_Time = "00:05";
+        
+        var dataOfTable = new Object();
+        dataOfTable.Partno = document.getElementById("txtCpVfd_PartNo").value;
+        dataOfTable.Revno = document.getElementById("txtCpVfd_RevNo").value;
+        dataOfTable.Serialno = document.getElementById("txtCpVfd_SerialNo").value;
+
+        
+        a= '{"Partno":"X990614","Revno":"R00", "Serialno":"123"}';
+        differntProcess.process_data = a;
+        differntProcess.method = "process_submit";
+
+        console.log(differntProcess);
+
+        $.ajax({
+            url: 'http://20.212.149.30:8000/substationapi',
+            type: 'POST',
+            dataType: 'json',
+            data: differntProcess,
+
+            success: function (data, textStatus, xhr) {
+                console.log(data);
+                var sec = 0;
+                document.getElementById("cycletimemain").value = data.process_seq.Cycle_Time;
+
+                console.log(data.process_seq.process_validation)
+
+                process = data.process_seq.process_validation;
+
+                if(process == "Fail"){
+
+                    document.getElementById("errormessage").innerText = data.process_seq.Message
+
+
+                } else if (process == "Success") {
+                    $("#myModal").modal('show');
+                    clearInterval(intervalId);
+                }
+
+
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                console.log('Error in Operation');
+            }
+        });
+
+
+    });
+
+    $("#CP_VFD_BTN").click(function(){
+        // $("#myModal").modal('show');
+        // clearInterval(intervalId);
+
+        differntProcess.Process_Seq_No = 1.0;
+        differntProcess.Pro_Type_Code = "SUBMIT";
+        differntProcess.Actual_Time = "00:05";
+        
+        var dataOfTable = new Object();
+        dataOfTable.Partno = document.getElementById("txtCpVfd_PartNo").value;
+        dataOfTable.Revno = document.getElementById("txtCpVfd_RevNo").value;
+        dataOfTable.Serialno = document.getElementById("txtCpVfd_SerialNo").value;
+
+        
+        a= '{"Partno":"X990614","Revno":"R00", "Serialno":"123"}';
+        differntProcess.process_data = a;
+        differntProcess.method = "process_submit";
+
+        console.log(differntProcess);
+
+        $.ajax({
+            url: 'http://20.212.149.30:8000/substationapi',
+            type: 'POST',
+            dataType: 'json',
+            data: differntProcess,
+
+            success: function (data, textStatus, xhr) {
+                console.log(data);
+                var sec = 0;
+                document.getElementById("cycletimemain").value = data.process_seq.Cycle_Time;
+
+                console.log(data.process_seq.process_validation)
+
+                process = data.process_seq.process_validation;
+
+                if(process == "Fail"){
+
+                    document.getElementById("errormessage").innerText = data.process_seq.Message
+
+
+                } else if (process == "Success") {
+                    $("#myModal").modal('show');
+                    clearInterval(intervalId);
+                }
+
+
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                console.log('Error in Operation');
+            }
+        });
+
+
+    });
+
+    
+
+});
+
+</script>
+
+<!-- On Load API Call -->
+
+<script>
+
+    function setOnLoadCursor(response) {
+        switch(response) {
+            case "CP_AIREND":
+                $("#txtCpAirend_PartNo")[0].setSelectionRange($("#txtCpAirend_PartNo").val().length, $("#txtCpAirend_PartNo").val().length);
+                $("#txtCpAirend_PartNo").focus();
+                break;
+            case "CP_BELT_DETAILS":
+                $("#txtCpBeltDetails_PartNo")[0].setSelectionRange($("#txtCpBeltDetails_PartNo").val().length, $("#txtCpBeltDetails_PartNo").val().length);
+                $("#txtCpBeltDetails_PartNo").focus();
+                break;
+            case "CP_CONTROL_PANEL":
+                $("#txtCpControlPanel_PartNo")[0].setSelectionRange($("#txtCpControlPanel_PartNo").val().length, $("#txtCpControlPanel_PartNo").val().length);
+                $("#txtCpControlPanel_PartNo").focus();
+                break;
+            case "CP_COOLER":
+                $("#txtCpCooler_PartNo")[0].setSelectionRange($("#txtCpCooler_PartNo").val().length, $("#txtCpCooler_PartNo").val().length);
+                $("#txtCpCooler_PartNo").focus();
+                break;
+            case "CP_DRIVE_PULLY":
+                $("#txtCpDrivePully_PartNo")[0].setSelectionRange($("#txtCpDrivePully_PartNo").val().length, $("#txtCpDrivePully_PartNo").val().length);
+                $("#txtCpDrivePully_PartNo").focus();
+                break;
+            case "CP_DRIVEN_PULLY":
+                $("#txtCpDrivenPully_PartNo")[0].setSelectionRange($("#txtCpDrivenPully_PartNo").val().length, $("#txtCpDrivenPully_PartNo").val().length);
+                $("#txtCpDrivenPully_PartNo").focus();
+                break;
+            case "CP_DRYER":
+                $("#txtCpDryer_PartNo")[0].setSelectionRange($("#txtCpDryer_PartNo").val().length, $("#txtCpDryer_PartNo").val().length);
+                $("#txtCpDryer_PartNo").focus();
+                break;
+            case "CP_FAN_MOTOR":
+                $("#txtCpFanMotor_PartNo")[0].setSelectionRange($("#txtCpFanMotor_PartNo").val().length, $("#txtCpFanMotor_PartNo").val().length);
+                $("#txtCpFanMotor_PartNo").focus();
+                break;
+            case "CP_MOTOR":
+                $("#txtCpMotor_PartNo")[0].setSelectionRange($("#txtCpMotor_PartNo").val().length, $("#txtCpMotor_PartNo").val().length);
+                $("#txtCpMotor_PartNo").focus();
+                break;
+            case "CP_NEURON":
+                $("#txtCpNeuron_PartNo")[0].setSelectionRange($("#txtCpNeuron_PartNo").val().length, $("#txtCpNeuron_PartNo").val().length);
+                $("#txtCpNeuron_PartNo").focus();
+                break;
+            case "CP_TANK":
+                $("#txtCpTank_PartNo")[0].setSelectionRange($("#txtCpTank_PartNo").val().length, $("#txtCpTank_PartNo").val().length);
+                $("#txtCpTank_PartNo").focus();
+                break;
+            case "CP_VFD":
+                $("#txtCpVfd_PartNo")[0].setSelectionRange($("#txtCpVfd_PartNo").val().length, $("#txtCpVfd_PartNo").val().length);
+                $("#txtCpVfd_PartNo").focus();
+                break;
+
+            case "CP_VFD":
+                $("#txtCpVfd_PartNo")[0].setSelectionRange($("#txtCpVfd_PartNo").val().length, $("#txtCpVfd_PartNo").val().length);
+                $("#txtCpVfd_PartNo").focus();
+                break;
+            default:
+                $("#txtCpAirend_PartNo")[0].setSelectionRange($("#txtCpAirend_PartNo").val().length, $("#txtCpAirend_PartNo").val().length);
+                $("#txtCpAirend_PartNo").focus();
+        }
+    }
+
+    var initaldata = new Object();
+    initaldata.method = "process_seq";
+    initaldata.Tpl_No = "tpl11";
+    initaldata.Fab_No = "AUES034896";
+    initaldata.Emp_Name = "Vivek";
+    // initaldata.Pro_Type_Code = "SUBMIT";
+
+    console.log(initaldata.Pro_Type_Code);
+    
+    $.ajax({
+        url: 'http://20.212.149.30:8000/substationapi',
+        type: 'POST',
+        dataType: 'json',
+        data: initaldata,
+        
+        success: function (data, textStatus, xhr) {
+            var ac = data.process_seq.Actual_Time
+            console.log(ac,"acacaca");
+            document.getElementById("processtype").innerText = data.process_seq.Pro_Type_Code;
+            document.getElementById("tpl").innerText = data.process_seq.TPL_No;
+            document.getElementById("totalprocess").innerText = data.process_seq.Total_Processes;
+            document.getElementById("fab").innerText = data.process_seq.FAB_NO;
+            document.getElementById("actualtimemain").innerText = data.process_seq.Actual_Time;
+            document.getElementById("cycletimemain").innerText = data.process_seq.Cycle_Time;
+            // document.getElementById("mainimage").src = "./";
+            document.getElementById("processname").innerText = data.process_seq.Process_Desc;
+            document.getElementById("completedprocess").innerText = data.process_seq.Completed_Process;
+
+
+            console.log("a123")
+            var sec = 0;
+            console.log(data.process_seq.Pro_Type_Code)
+            var matched = $('#' + data.process_seq.Pro_Type_Code);
+            console.log(matched);
+            console.log("################")
+            $("#CP_AIREND").hide();
+            $("#"+data.process_seq.Pro_Type_Code).show();
+            // $("#SUBMIT_SCREEN").show();
+            setOnLoadCursor(data.process_seq.Pro_Type_Code);
+
+        
+
+            // Timer Functionality 
+
+            var actualMainTime = data.process_seq.Actual_Time;
+            var cycleMainTime = data.process_seq.Cycle_Time;
+
+            var popupActualTime = document.getElementById("actualtime")
+
+            var actualMainTimerParts = actualMainTime.split(":")
+            var actualMainTimeInMs = (parseInt(actualMainTimerParts[0]*60) + parseInt(actualMainTimerParts[1]))*1000;
+            var cycleMainTimerParts = cycleMainTime.split(":")
+
+            // Calculate the start time for main screen
+            let mainStartTime = Date.now() - actualMainTimeInMs;
+            // let mainStartTime = Date.now() - 177000;
+            
+            function getTimeDifference(cycleTime, actualTime) {
+                let diff = (cycleTime - actualTime) / 1000; // time difference in seconds
+                const isNegative = diff < 0; // check if time difference is negative
+                if (isNegative) {
+                    diff = Math.abs(diff);
+                }
+                const minutes = Math.floor(diff / 60).toString().padStart(2, "0");
+                const seconds = (diff % 60).toFixed(0).toString().padStart(2, "0");
+                return {
+                    minutes: isNegative ? `-${minutes}` : minutes,
+                    seconds: seconds,
+                };
+            }
+
+            const intervalId = setInterval( () => {
+                var actualMainTime1 = data.process_seq.Actual_Time;
+                var cycleMainTime = data.process_seq.Cycle_Time;
+
+                var actualMainTime2 = document.getElementById("actualtimemain")
+
+                var actualMainTimerParts = actualMainTime1.split(":")
+                var cycleMainTimerParts = cycleMainTime.split(":")
+
+                var actualMainTimeInMs1 = (parseInt(actualMainTimerParts[0]*60) + parseInt(actualMainTimerParts[1]))*1000;
+                var cycleMainTimeInMs1 = (parseInt(cycleMainTimerParts[0]*60) + parseInt(cycleMainTimerParts[1]))*1000;
+
+                // console.log(actualMainTimeInMs1);
+                // console.log(cycleMainTimeInMs1);
+
+                var actualMainTimeInSec = actualMainTimerParts[0]*60 + parseInt(actualMainTimerParts[1])
+                var cycleMainTimeInSec = cycleMainTimerParts[0]*60 + parseInt(cycleMainTimerParts[1] )
+
+
+                const remainingMs = Date.now() - mainStartTime;
+
+                const elapsedSeconds = Math.floor(remainingMs / 1000) % 60;
+                const elapsedMinutes = Math.floor(remainingMs / 1000 / 60);
+
+                const formattedMainTime = `${elapsedMinutes}:${elapsedSeconds.toString().padStart(2, '0')}`;
+                actualMainTime2.innerText = formattedMainTime;
+
+                var cycleTimeForPopup = document.getElementById("cycle-time");
+                cycleTimeForPopup.innerHTML = data.process_seq.Cycle_Time;
+
+                var actualTimeForPopup = document.getElementById("actualtime");
+
+                var dmsTimer = document.getElementById("dmstimer");
+                dmsTimer.innerHTML = formattedMainTime;
+
+
+                if (remainingMs > cycleMainTimeInMs1) {
+                    // clearInterval(intervalId);
+
+                    // var actualTimeForPopup = document.getElementById("actualtimemain").innerText;
+                    // popupActualTime.innerHTML = actualTimeForPopup;
+
+                    // timeDiffEl.innerText = formattedDiffTime;
+
+                    actualMainTime2.style.color = "red";
+                    // $('#pbox').modal('show');
+                    // $("#actualtime").html(actualTimeBtnClick)
+                } 
+                
+
+            },1000);
+
+            $('#ploss_submit_btn').click(function() {
+                // $('#pbox').modal('hide');
+                console.log("click");
+                $("#ploss_submit_btn").html("Submitted")
+            });
+
+            $('#qloss_submit_btn').click(function() {
+                // $('#pbox').modal('hide');
+                console.log("click2");
+                $("#qloss_submit_btn").html("Submitted")
+            });
+
+            $("#popup_ok").click(function () {
+                clearInterval(intervalId);
+                var actualTimeBtnClick = $("#actualtimemain").html();
+                $("#actualtime").html(actualTimeBtnClick);
+                $('#pbox').modal('show');
+            });
+
+            // P button Click Functionality
+            $("#pBTN").click(function (){
+                clearInterval(intervalId);
+
+                var actualTimeBtnClick = $("#actualtimemain").html();
+                var act = $("#actualtime").html(actualTimeBtnClick);
+                var ct = $("#cycletimemain").html(data.process_seq.Cycle_Time);
+
+                var actualMainTimerParts = act.text().split(":");
+                var cycleMainTimerParts = ct.text().split(":");
+
+                var actualMainTimeInMs = (parseInt(actualMainTimerParts[0]*60) + parseInt(actualMainTimerParts[1]))*1000;
+                var cycleMainTimeInMs = (parseInt(cycleMainTimerParts[0]*60) + parseInt(cycleMainTimerParts[1]))*1000;
+
+
+                const timeDifference = getTimeDifference(cycleMainTimeInMs, actualMainTimeInMs);
+                const formattedDiffTime = `${timeDifference.minutes}:${timeDifference.seconds.toString().padStart(2, '0')}`;
+                $("#time-diff").html(formattedDiffTime);
+
+            });
+
+            // Key Press Functionality
+            $(document).keydown(function(event) {
+                if (event.which === 81) { // Check if "q" button is pressed (key code 80)
+                    $('#qbox').modal('show');
+                    var actualTimeBtnClick = $("#actualtimemain").html();
+                    
+                } else if (event.which === 80) {
+                    clearInterval(intervalId);
+                    $('#pbox').modal('show');
+                    var actualTimeBtnClick = $("#actualtimemain").html();
+                    var act = $("#actualtime").html(actualTimeBtnClick);
+                    var ct = $("#cycletimemain").html(data.process_seq.Cycle_Time);
+
+                    var actualMainTimerParts = act.text().split(":");
+                    var cycleMainTimerParts = ct.text().split(":");
+
+                    var actualMainTimeInMs = (parseInt(actualMainTimerParts[0]*60) + parseInt(actualMainTimerParts[1]))*1000;
+                    var cycleMainTimeInMs = (parseInt(cycleMainTimerParts[0]*60) + parseInt(cycleMainTimerParts[1]))*1000;
+
+
+                    const timeDifference = getTimeDifference(cycleMainTimeInMs, actualMainTimeInMs);
+                    const formattedDiffTime = `${timeDifference.minutes}:${timeDifference.seconds.toString().padStart(2, '0')}`;
+                    $("#time-diff").html(formattedDiffTime);
+
+                }
+            });
+        },
+        error: function (xhr, textStatus, errorThrown) {
+            console.log('Error in Operation');
+        }
+    });
+
+</script>
+
+    </body>
+    </html>

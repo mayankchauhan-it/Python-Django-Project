@@ -1,0 +1,280 @@
+{% load static %}
+{% include 'general/main.html' %}
+<head>
+
+
+    {% include 'general/title_meta.html' %}
+    <!-- plugin css -->
+    <link href="{% static 'libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css' %}" rel="stylesheet" type="text/css"/>
+
+     <!-- DataTables -->
+    <link href="{% static 'libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />
+
+    <!-- Responsive datatable examples -->
+    <link href="{% static 'libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />
+
+
+    {% include 'general/head_css.html' %}
+
+</head>
+{% include 'general/body.html' %}
+<!-- Begin page -->
+<div id="layout-wrapper">
+{% include 'general/menu.html' %}
+
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+    <div class="main-content">
+        <div class="page-content">
+            <div class="container-fluid">
+
+                 <!-- start page title -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                            <h4 class="mb-sm-0 font-size-18">Active TPL List</h4>
+
+                            <div class="page-title-right">
+                                <ol class="breadcrumb m-0">
+                                    <ol class="breadcrumb m-0">
+
+                                    <li class="breadcrumb-item"><a href="tplmaster">TPL Master</a></li>
+                                    <li class="breadcrumb-item active">Active TPL List</li>
+                                    </ol>
+
+                                </ol><br>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <!-- end page title -->
+                <!-- child_part_detail page start -->
+                <div class="col-xl-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <!-- form start -->
+                            <form>
+                            <div class="row">
+
+                                    <!-- left column strat -->
+                                    <div class="col-lg-6 ms-lg-auto">
+                                        <div class="mt-4 mt-lg-0">
+
+
+                                                <div class="row mb-4">
+                                                    <label for="information" class="col-sm-3 col-form-label">TPL  Number</label>
+                                                    <div class="col-sm-9">
+                                                       <input type="text" class="form-control" id="information" readonly>
+                                                    </div>
+                                                </div>
+
+                                        </div>
+                                    </div>
+                                    <!-- left column end -->
+                                    <!-- right column start -->
+
+                                    <div class="col-lg-6 ms-lg-auto">
+                                        <div class="mt-4 mt-lg-0">
+
+
+
+
+
+
+                                                <div class="row justify-content-end">
+                                                    <div class="col-sm-9">
+
+
+                                                        <div>
+                                                            <button type="submit" class="btn btn-primary w-md">Add Process</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                        </div>
+                                    </div>
+                                    <!-- right column end-->
+
+
+                            </div>
+                            </form>
+                            <!-- form end -->
+                              <!-- table start-->
+
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card">
+                                           <!-- <div class="card-header">
+                                                <h4 class="card-title">Default Datatable</h4>
+
+                                            </div>-->
+                                            <div class="card-body">
+                                                <table id="datatable2" class="table table-bordered dt-responsive  nowrap w-100">
+                                                    <thead >
+                                                        <tr>
+                                                            <th>TPL Description</th>
+                                                            <th>Sequence</th>
+                                                            <th>Station No.</th>
+                                                            <th></th>
+
+                                                        </tr>
+                                                    </thead>
+
+
+                                                    <tbody>
+
+                                                        <tr>
+                                                            <td>Process 1</td>
+                                                            <td>1</td>
+                                                            <td>A</td>
+                                                            <td><button style="color:red" class="btn btn-none"><i data-feather="edit" class="feather feather-edit"></i></button></td>
+                                                            <td><button class="btn btn-none"><i data-feather="delete" class="feather feather-delete"></i></button></td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Process 1</td>
+                                                            <td>1</td>
+                                                            <td>A</td>
+                                                            <td><button style="color:red" class="btn btn-none"><i data-feather="edit" class="feather feather-edit"></i></button></td>
+                                                            <td><button class="btn btn-none"><i data-feather="delete" class="feather feather-delete"></i></button></td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Process 2</td>
+                                                            <td>1</td>
+                                                            <td>A</td>
+                                                            <td><button style="color:red" class="btn btn-none"><i data-feather="edit" class="feather feather-edit"></i></button></td>
+                                                            <td><button class="btn btn-none"><i data-feather="delete" class="feather feather-delete"></i></button></td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Process 3</td>
+                                                            <td>1</td>
+                                                            <td>A</td>
+                                                            <td><button style="color:red" class="btn btn-none"><i data-feather="edit" class="feather feather-edit"></i></button></td>
+                                                            <td><button class="btn btn-none"><i data-feather="delete" class="feather feather-delete"></i></button></td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Process 4</td>
+                                                            <td>1</td>
+                                                            <td>A</td>
+                                                            <td><button style="color:red" class="btn btn-none"><i data-feather="edit" class="feather feather-edit"></i></button></td>
+                                                            <td><button class="btn btn-none"><i data-feather="delete" class="feather feather-delete"></i></button></td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td id="test">Process 3</td>
+                                                            <td>2</td>
+                                                            <td>A</td>
+                                                            <td><button style="color:red" class="btn btn-none"><i data-feather="edit" class="feather feather-edit"></i></button></td>
+                                                            <td><button class="btn btn-none"><i data-feather="delete" class="feather feather-delete"></i></button></td>
+
+                                                        </tr>
+                                                        <tr id="mytest">
+                                                            <td>Process 1</td>
+                                                            <td>1</td>
+                                                            <td id="test2">Amaui</td>
+                                                            <td><button style="color:red" class="btn btn-none"><i data-feather="edit" class="feather feather-edit"></i></button></td>
+                                                            <td><button type="button" class="btn btn-none row-add"><i data-feather="delete" class="feather feather-delete "></i></button></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <div id="datatables" class="row">
+                                                    <div class="col-sm-12 col-md-6">
+                                                        <div class="dt-buttons btn-group flex-wrap">      
+                                                            <button class="btn btn-secondary buttons-copy buttons-html5" tabindex="0" aria-controls="datatable-buttons2" type="button"><span>Copy</span></button> 
+                                                            <button class="btn btn-secondary buttons-excel buttons-html5" tabindex="0" aria-controls="datatable-buttons2" type="button"><span>Excel</span></button> 
+                                                            <button class="btn btn-secondary buttons-pdf buttons-html5" tabindex="0" aria-controls="datatable-buttons2" type="button"><span>PDF</span></button> <div class="btn-group">
+                                                            <button class="btn btn-secondary buttons-collection dropdown-toggle buttons-colvis" tabindex="0" aria-controls="datatable-buttons2" type="button" aria-haspopup="true" aria-expanded="false"><span>Column visibility</span></button>
+                                                        </div> 
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end col -->
+                                </div>
+
+                              <!-- table end-->
+                            </div>
+                            {% comment %} <div class="row justify-content-start ms-2 mb-4">
+                                <div class="col-sm-9">
+                                    <div>
+                                        <button type="submit" class="btn btn-primary w-md" id="addbtn" name="submit" value="Add">Add</button>
+                                        <button type="submit" class="btn btn-primary w-md" id="updatebtn" name="submit" value="Modify">Edit</button>
+                                        <button type="submit" class="btn btn-primary w-md" id="clearbtn" name="submit" onclick="clearInput()">Clear</button>
+                                        <button type="submit" class="btn btn-primary w-md" id="delbtn" name="submit" value="Delete">Delete</button>
+                                    </div>
+                                </div>
+                            </div> {% endcomment %}
+                    </div>
+                  </div>
+                <!-- child_part_detail page end-->
+
+            </div>
+            <!--End  container-fluid -->
+        </div>
+        <!-- End Page-content -->
+
+        {% include 'general/footer.html' %}
+    </div>
+    <!-- end main content-->
+</div>
+<!-- END layout-wrapper -->
+
+{% include 'general/right_side_bar.html' %}
+{% include 'general/vendor_script.html' %}
+
+
+<!-- Required datatable js -->
+<script src="{%static 'libs/datatables.net/js/jquery.dataTables.min.js' %}"></script>
+<script src="{%static 'libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js' %}"></script>
+
+<!-- Buttons examples -->
+<script src="{%static 'libs/datatables.net-buttons/js/dataTables.buttons.min.js' %}"></script>
+<script src="{%static 'libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js' %}"></script>
+<script src="{%static 'libs/jszip/jszip.min.js' %}"></script>
+<script src="{%static 'libs/pdfmake/build/pdfmake.min.js' %}"></script>
+<script src="{%static 'libs/pdfmake/build/vfs_fonts.js' %}"></script>
+<script src="{%static 'libs/datatables.net-buttons/js/buttons.html5.min.js' %}"></script>
+<script src="{%static 'libs/datatables.net-buttons/js/buttons.print.min.js' %}"></script>
+<script src="{%static 'libs/datatables.net-buttons/js/buttons.colVis.min.js' %}"></script>
+
+<!-- Responsive examples -->
+<script src="{%static 'libs/datatables.net-responsive/js/dataTables.responsive.min.js' %}"></script>
+<script src="{%static 'libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js' %}"></script>
+
+<!-- Datatable init js -->
+<script src="{%static 'js/pages/datatables.init.js' %}"></script>
+<script src="{%static 'js/app.js' %}"></script>
+
+<script>
+
+        $(".row-add").click(function() {
+            var $row = $(this).closest("tr");    // Find the row
+            var $tds = $row.find("td");
+
+           for ( let i=0; i<3; i++){
+            console.log($tds[i].textContent);
+           }
+            
+            
+        })
+
+</script>
+
+
+
+</body>
+
+</html>

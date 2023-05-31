@@ -1,0 +1,398 @@
+{% load static %}
+{% include 'general/main.html' %}
+
+<head>
+
+
+    {% include 'general/title_meta.html' %}
+    <!-- plugin css -->
+    <link href="{% static 'libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css' %}" rel="stylesheet" type="text/css"/>
+
+
+
+     <!-- DataTables -->
+    <link href="{% static 'libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+
+    
+    {% comment %} <!-- MDB -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css"
+    rel="stylesheet"
+    /> {% endcomment %}
+    <!-- Responsive datatable examples -->
+    <link href="{% static 'libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />
+    {% include 'general/head_css.html' %}
+
+    
+    <style>
+        .scrollme {
+            overflow-x: auto;
+        }
+        hidden-panel {
+            display: none;
+        }
+        .data_pointer
+        {
+            cursor:pointer;
+
+        }
+        td:hover
+        {
+            color:#ee3420;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+
+</head>
+{% comment %} {% include 'general/body.html' %} {% endcomment %}
+<body style="background-color: white; color: black;">
+    {% comment %} {% include 'general/menu.html' %} {% endcomment %}
+    {% load django_browser_reload %}
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <h4 class="mb-sm-0 font-size-18">DMS Production Loss Entry</h4>
+        
+                        <!-- <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Alpha Line-Sub Station
+                                        1</a></li>
+                                <li class="breadcrumb-item active">Alpha Line-Sub Station 1</li>
+                            </ol>
+                        </div> -->
+        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card bg-dark border-dark text-light">
+                        <div class="card-body">
+                            <div class="row ">
+                                <div class="col-md-5">
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="row">
+                                                <div class="col-xl-12 font-size-15 text-white-50 mb-1">Emp. Name
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xl-12 font-size-15 text-white-50 mb-1">Emp. ID</div>
+                                            </div>
+                                            <!-- <div class="row">
+                                                <div class="col-xl-12 font-size-15 text-white-50 mb-1">Skill Level
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div  class="col-xl-12 font-size-15 text-white-50 ">Process</div>
+                                            </div> -->
+
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <div class="row">
+                                                <div class="col-xl-12 font-size-15 mb-1">Dinesh S</div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xl-12 font-size-15 mb-1">3400</div>
+                                            </div>
+                                            <!-- <div class="row">
+                                                <div class="col-xl-12 font-size-15 mb-1">10</div>
+                                            </div>
+                                            <div class="row">
+                                                <div id="processname" class="col-xl-12 font-size-13 mb-1">AIREND_TEST</div>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <br>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="row">
+                                                <div class="col-xl-12 font-size-15 text-white-50 mb-1">FAB</div>
+                                            </div>
+                                            <!-- <div class="row">
+                                                <div class="col-xl-12 font-size-15 text-white-50 mb-1">Model</div>
+                                            </div> -->
+                                            <div class="row">
+                                                <div class="col-xl-12 font-size-15 text-white-50 mb-1">TPL</div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <div class="row">
+                                                <div class="col-xl-12 font-size-15 mb-1">BSISO38928</div>
+                                            </div>
+                                            <!-- <div class="row">
+                                                <div class="col-xl-12 font-size-15 mb-1">EG 37 - 8.5 - 60</div>
+                                            </div> -->
+                                            <div class="row">
+                                                <div class="col-xl-12 font-size-15 mb-1">S123456</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- end col -->
+
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body ">
+            <div class="row">
+                <div class="col-lg-12">
+                        <!-- <div  style="height: 80%;" class="card"> -->
+                        <div style="height: 100%;" class="card bg-dark border-dark text-light justify-content-center">
+                            <div class="row justify-content-between ">
+                                <div style="margin-top: 10px;" class="col-md-4 ">
+                                    <h3 class="text-muted mb-0 bg-dark px-2">
+                                        Cycle Time : <span id="cycle-time" class="text-light mb-0 mt-2">00:20</span></h3>
+                                </div>
+    
+                                <div class="col-md-4 ">
+                                    <h3 class="text-muted mb-0 mt-2 ">
+                                        Actual Time : <span id="actualtime" class="text-light mb-0 mt-2">20:10</span></h3>
+                                </div>
+
+                                <div class="col-md-4 ">
+                                    <h3 class="text-muted mb-0 mt-2 ">
+                                        Difference : <span id="time-diff" class="text-light mb-0 mt-2">05:10</span></h3>
+                                </div>
+                        </div><!-- end card -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-12 ">
+                    <div class="card bg-dark text-light">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <label style="font-size: 20px;" for="bypass" class="col-sm-2 col-form-label text-muted">Level 1</label>
+                                        <div class="col-sm-10">
+                                            <select style="height: 100%;" class="form-select" id="bypass" name="bypass">
+                                                    <option></option>
+                                                    <option>Option 1</option>
+                                                    <option>Option 2</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <label style="font-size: 20px;" for="bypass" class="col-sm-2 col-form-label text-muted">Level 2</label>
+                                        <div class="col-sm-10">
+                                            <select style="height: 100%;" class="form-select" id="bypass" name="bypass">
+                                                    <option></option>
+                                                    <option>Option 1</option>
+                                                    <option>Option 2</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <button type="submit" class="btn btn-primary w-md" id="stop">Submit</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="card">
+        <div id="myModal" class="modal fade bs-example-modal-center5" tabindex="-1"
+                                                role="dialog" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title">Selected Order Details</h5>
+                                                            <button type="button" class="btn-close"
+                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <p style=" text-align: start;"
+                                                                class="text-light bg-dark px-2">Fab No.:
+                                                            </p>
+                                                            <p style="text-align: center;"><span
+                                                                    id="selectedData"></span> </p>
+                                                            <p style=" text-align: start;"
+                                                                class="text-light bg-dark px-2">TPL No.:
+                                                            </p>
+                                                            <p style="text-align: center;"><span
+                                                                    id="selectedData2"></span></p>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="submit"
+                                                                class="btn btn-primary w-md">Ok</button>
+
+                                                            <button id="popup_close" type="submit"
+                                                                class="btn btn-primary w-md">Cancel</button>
+                                                        </div>
+                                                    </div><!-- /.modal-content -->
+                                                </div><!-- /.modal-dialog -->
+                                            </div><!-- /.modal -->
+    </div>
+    
+
+</body> 
+
+<script>
+    const cycleTimeEl = document.getElementById("cycle-time")
+    const actualtimeEl = document.getElementById("actualtime")
+    const timeDiffEl = document.getElementById("time-diff")
+    const stopBtn = document.getElementById("stop")
+
+    // console.log(cycleTimeEl.innerText)
+    // console.log(actualtimeEl.innerText)
+    // console.log(timeDiffEl.innerText)
+
+
+    cycleTimeElParts = cycleTimeEl.innerText.split(":")
+    actualtimeElParts = actualtimeEl.innerText.split(":")
+    timeDiffElParts = timeDiffEl.innerText.split(":")
+
+    // console.log(cycleTimeElParts)
+    // console.log(                      actualtimeElParts)  
+    // console.log(timeDiffElParts)
+
+    const cycleTimeInMs = (parseInt(cycleTimeElParts[0]*60) + parseInt(cycleTimeElParts[1]))*1000;
+    const actualTimeInMs = (parseInt(actualtimeElParts[0]*60) + parseInt(actualtimeElParts[1]))*1000;
+    console.log(cycleTimeInMs)
+
+    function getTimeDifference(cycleTime, actualTime) {
+        let diff = (cycleTime - actualTime) / 1000; // time difference in seconds
+        const isNegative = diff < 0; // check if time difference is negative
+        if (isNegative) {
+            diff = Math.abs(diff);
+        }
+        const minutes = Math.floor(diff / 60).toString().padStart(2, "0");
+        const seconds = (diff % 60).toFixed(0).toString().padStart(2, "0");
+        return {
+            minutes: isNegative ? `-${minutes}` : minutes,
+            seconds: seconds,
+        };
+    }
+
+    // Calculate the start time and actual time in miliseconds..
+
+    let startTime = Date.now()
+    // console.log(startTime);
+
+    // Update the timer every 100 miliseconds
+
+    const intervalId = setInterval( () =>{
+        cycleTimeElParts = cycleTimeEl.innerText.split(":")
+        const cycleTimeInMs = (parseInt(cycleTimeElParts[0]*60) + parseInt(cycleTimeElParts[1]))*1000;
+
+        cycleTimeElInSec = cycleTimeElParts[0]*60+cycleTimeElParts[1]
+
+        console.log(cycleTimeElInSec)
+
+        actualtimeElParts = actualtimeEl.innerText.split(":")
+        const actualTimeInMs = (parseInt(actualtimeElParts[0]*60) + parseInt(actualtimeElParts[1]))*1000+1000;
+
+        actualTimeInSec = actualtimeElParts[0]*60 + actualtimeElParts[1]
+        console.log(actualTimeInSec)
+
+
+        // console.log(actualTimeInMs)
+
+        const timeDifference = getTimeDifference(cycleTimeInMs, actualTimeInMs);
+        // console.log(`Time difference: ${timeDifference.minutes} minutes, ${timeDifference.seconds} seconds`);
+
+        // Format the remaining time as "M:SS"
+        const formattedDiffTime = `${timeDifference.minutes}:${timeDifference.seconds.toString().padStart(2, '0')}`;
+
+        timeDiffEl.innerText = formattedDiffTime;
+
+        console.log(formattedDiffTime);
+
+
+
+        // calculate remaining time in minutes and seconds. 
+        const remainingMs = Date.now() - startTime
+        // console.log(remainingMs, "Remaining");
+
+        // Calculate the remaining time in minutes and seconds
+        const elapsedSeconds = Math.floor(remainingMs / 1000) % 60;
+        const elapsedMinutes = Math.floor(remainingMs / 1000 / 60);
+
+        // console.log(elapsedSeconds);
+        // console.log(elapsedMinutes);
+
+         // Format the remaining time as "M:SS"
+        const formattedTime = `${elapsedMinutes}:${elapsedSeconds.toString().padStart(2, '0')}`;
+        // console.log(formattedTime);
+
+        // Update the cycle time and timer elements
+        actualtimeEl.innerText = formattedTime;
+        // console.log(formattedTime);
+
+         // Calculate the time difference in seconds
+        const timeDiffSecs = cycleTimeInMs - remainingMs;
+
+        // Calculate the time difference in minutes and seconds
+        const timeDiffMinutes = Math.floor(timeDiffSecs / 60);
+        const timeDiffSeconds = timeDiffSecs % 60;
+
+        // Format the time difference as "M:SS"
+        const formattedTimeDiff = `${Math.abs(timeDiffMinutes)}:${Math.abs(timeDiffSeconds).toString().padStart(2, '0')}`;
+
+        // console.log(timeDiffMinutes, "timeDiffMinutes");
+        // console.log(Math.abs(timeDiffSeconds), "timeDiffSecs");
+        // console.log(timeDiffMinutes, "timeDiffMinutes");
+        // console.log(formattedTimeDiff, "formattedTimeDiff");
+
+
+
+
+        // If the actual time is greater than or equal to the cycle time, stop the timer
+       if (remainingMs >= cycleTimeInMs) {
+        // clearInterval(intervalId);
+        actualtimeEl.style.backgroundColor = "red";
+       }
+
+    },1000)
+
+    // console.log(cycleTimeEl.innerText)
+    // Stop the timer when the button is clicked
+    stopBtn.addEventListener("click", () => {
+    clearInterval(intervalId);
+    document.getElementById("time-diff").innerText = elapsedMs;
+    });
+</script>

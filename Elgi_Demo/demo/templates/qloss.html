@@ -1,0 +1,187 @@
+{% load static %}
+{% include 'general/main.html' %}
+
+<head>
+
+
+    {% include 'general/title_meta.html' %}
+    <!-- plugin css -->
+    <link href="{% static 'libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css' %}" rel="stylesheet" type="text/css"/>
+
+
+
+     <!-- DataTables -->
+    <link href="{% static 'libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+
+    
+    {% comment %} <!-- MDB -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css"
+    rel="stylesheet"
+    /> {% endcomment %}
+    <!-- Responsive datatable examples -->
+    <link href="{% static 'libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />
+    {% include 'general/head_css.html' %}
+
+    
+    <style>
+        .scrollme {
+            overflow-x: auto;
+        }
+        hidden-panel {
+            display: none;
+        }
+        .data_pointer
+        {
+            cursor:pointer;
+
+        }
+        td:hover
+        {
+            color:#ee3420;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card mb-0">
+                        <div class="card-header bg-dark rounded ">
+                            <h4 class="mb-sm-0 text-light font-size-18">Please Select the Level 1 and Level 2 dropdowns and wait until the issue is resolved
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div  class="col-xl-10 ">
+                    <div style="height: 100%;" class="card bg-dark">
+                        <div class="card-body ">
+
+                            <div class="row justify-content-start">
+                                <div class="col-md-10">
+                                    <div class="row ">
+                                        <label style="font-size: 20px;" for="bypass" class="col-sm-2 col-form-label text-muted">Level 1</label>
+                                        <div class="col-sm-10">
+                                            <select style="height: 100%;" class="form-select" id="bypass" name="bypass">
+                                                    <option></option>
+                                                    <option>Option 1</option>
+                                                    <option>Option 2</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-4">
+                                        <label style="font-size: 20px;" for="bypass" class="col-sm-2 col-form-label text-muted">Level 2</label>
+                                        <div class="col-sm-10">
+                                            <select style="height: 100%;" class="form-select" id="bypass" name="bypass">
+                                                    <option></option>
+                                                    <option>Option 1</option>
+                                                    <option>Option 2</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-2">
+                    <div style="height: 100%;" class="card bg-dark ">
+                        <div class="card-body text-center">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h2 class="text-muted mt-3 ">DMS TIMER : </h2>
+                                    <h3 id="actualtime" class="text-light mb-4 mt-4 ">
+                                        00:20 </h3>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 ">
+                    <div class="card  mt-3">
+                        <div class="card-footer text-center bg-dark" >
+                            <button type="submit" class="btn btn-primary w-md" id="stop">Submit</button>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+
+<script>
+    const actualtimeEl = document.getElementById("actualtime")
+
+    actualtimeElParts = actualtimeEl.innerText.split(":")
+
+    // console.log(actualtimeElParts)  
+
+    const actualTimeInMs = (parseInt(actualtimeElParts[0]*60) + parseInt(actualtimeElParts[1]))*1000;
+    // console.log(cycleTimeInMs)
+
+    
+    // Calculate the start time and actual time in miliseconds..
+
+    let startTime = Date.now()
+    // console.log(startTime);
+
+    // Update the timer every 100 miliseconds
+
+    const intervalId = setInterval( () =>{
+        actualtimeElParts = actualtimeEl.innerText.split(":")
+        const actualTimeInMs = (parseInt(actualtimeElParts[0]*60) + parseInt(actualtimeElParts[1]))*1000+1000;
+
+        actualTimeInSec = actualtimeElParts[0]*60 + actualtimeElParts[1]
+        console.log(actualTimeInSec)
+
+
+        // calculate remaining time in minutes and seconds. 
+        const remainingMs = Date.now() - startTime
+        // console.log(remainingMs, "Remaining");
+
+        // Calculate the remaining time in minutes and seconds
+        const elapsedSeconds = Math.floor(remainingMs / 1000) % 60;
+        const elapsedMinutes = Math.floor(remainingMs / 1000 / 60);
+
+        // console.log(elapsedSeconds);
+        // console.log(elapsedMinutes);
+
+         // Format the remaining time as "M:SS"
+        const formattedTime = `${elapsedMinutes}:${elapsedSeconds.toString().padStart(2, '0')}`;
+        // console.log(formattedTime);
+
+        // Update the cycle time and timer elements
+        actualtimeEl.innerText = formattedTime;
+        console.log( actualtimeEl.innerText);
+
+    },1000)
+
+    // console.log(cycleTimeEl.innerText)
+    // Stop the timer when the button is clicked
+    stopBtn.addEventListener("click", () => {
+    clearInterval(intervalId);
+    document.getElementById("time-diff").innerText = elapsedMs;
+    });
+</script>
